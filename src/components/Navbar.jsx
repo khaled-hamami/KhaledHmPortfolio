@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux"
 import { setSettingsVisible } from "../redux/settingsSlice"
 import "../styles/index.css"
 import { useEffect, useState } from "react"
+import Tilt from "react-parallax-tilt"
 
 export default function Navbar() {
   const dispatch = useDispatch()
@@ -58,10 +59,23 @@ export default function Navbar() {
           <Typography
             variant="h4"
             color="primary.main"
-            sx={{ cursor: "pointer", flex: "1", fontWeight: "600" }}
+            fontFamily="post-font"
+            sx={{
+              cursor: "pointer",
+              flex: "1",
+              fontWeight: "600",
+            }}
             onClick={() => navigate("/")}
           >
-            &lt;KHM/&gt;
+            <Tilt
+              style={{ width: "200px", margin: "0" }}
+              perspective={30000}
+              glareEnable={false}
+              scale={1}
+              glareColor={"transparent"}
+            >
+              &lt;KHM/&gt;
+            </Tilt>
           </Typography>
           <Box
             sx={{

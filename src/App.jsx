@@ -17,14 +17,13 @@ export default function App() {
   const { settingsVisible } = useSelector((state) => state.settings)
   return (
     <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
+      <ParticlesBakground mode={darkMode} />
       <Box
         className="background"
         sx={{
           backgroundColor: "background.default",
           backgroundImage: darkMode ? darkBgStyle : lightBgStyle,
           color: "primary.main",
-          height: "100%",
-          width: "100%",
         }}
       >
         <Router>
@@ -39,24 +38,23 @@ export default function App() {
           </Routes>
         </Router>
       </Box>
-      <ParticlesBakground mode={darkMode} />
     </ThemeProvider>
   )
 }
 
 //background faded spots was set here because background image propertie is not available in mui theme
 const lightBgStyle = `
-  radial-gradient(at 40% 20%, hsla(109, 100%, 98%, 1) 0px, transparent 50%),
-  radial-gradient(at 80% 0%, hsla(269, 0%, 100%, 1) 0px, transparent 50%),
-  radial-gradient(at 0% 50%, hsla(76, 100%, 94%, 1) 0px, transparent 50%),
-  radial-gradient(at 80% 50%, hsla(186, 83%, 63%, 1) 0px, transparent 50%),
-  radial-gradient(at 0% 100%, hsla(102, 0%, 100%, 1) 0px, transparent 50%),
-  radial-gradient(at 80% 100%, hsla(174, 34%, 51%, 0) 0px, transparent 50%),
-  radial-gradient(at 0% 0%, hsla(179, 59%, 67%, 1) 0px, transparent 50%);
+radial-gradient(at 40% 20%, hsla(109, 100%, 98%, 1) 0px, transparent 50%),
+radial-gradient(at 80% 0%, hsla(269, 0%, 100%, 1) 0px, transparent 50%),
+radial-gradient(at 0% 50%, hsla(76, 100%, 94%, 1) 0px, transparent 50%),
+radial-gradient(at 80% 50%, hsla(186, 83%, 63%, 1) 0px, transparent 50%),
+radial-gradient(at 0% 100%, hsla(102, 0%, 100%, 1) 0px, transparent 50%),
+radial-gradient(at 80% 100%, hsla(174, 34%, 51%, 0) 0px, transparent 50%),
+radial-gradient(at 0% 0%, hsla(179, 59%, 67%, 1) 0px, transparent 50%);
 `
 
 const darkBgStyle = `
-  radial-gradient(at 40% 20%, hsla(0,0%,0%,1) 0px, transparent 50%),
+radial-gradient(at 40% 20%, hsla(0,0%,0%,1) 0px, transparent 50%),
   radial-gradient(at 80% 0%, hsla(180,94%,6%,1) 0px, transparent 50%),
   radial-gradient(at 0% 50%, hsla(0,0%,0%,1) 0px, transparent 50%),
   radial-gradient(at 80% 50%, hsla(270,100%,9%,1) 0px, transparent 50%),

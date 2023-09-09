@@ -15,9 +15,10 @@
 * {
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
   scroll-behavior: smooth;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-  font-family: "Courier New", Courier, monospace;
+  font-family: "post-font", "Courier New", Courier, monospace;
 }
 
 @font-face {
@@ -29,12 +30,15 @@
   font-family: great-font;
   src: url(/fonts/GreatVibes-Regular.ttf);
 }
-#root {
-  width: 100%;
-}
+
 html body {
+  box-sizing: border-box;
   width: 100%;
+  height: 100%;
+
 }
+
+
 /******************************************    SCROLLBAR    ******************************************/
 
 ::-webkit-scrollbar {

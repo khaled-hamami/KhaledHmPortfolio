@@ -84,7 +84,7 @@ const ThemeSwitcher = styled(Switch)(({ theme }) => ({
       },
       "& + .MuiSwitch-track": {
         opacity: 1,
-        backgroundColor: theme.palette.mode === "dark" ? "#3b0061" : "#EC5AFF",
+        backgroundColor: theme.palette.mode === "dark" ? "#3b0061" : "#ec5aff",
       },
     },
   },
@@ -108,7 +108,7 @@ const ThemeSwitcher = styled(Switch)(({ theme }) => ({
   },
   "& .MuiSwitch-track": {
     opacity: 1,
-    backgroundColor: "#27003C",
+    backgroundColor: "#ec5aff",
     borderRadius: 20 / 2,
   },
 }))
