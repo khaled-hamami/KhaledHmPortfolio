@@ -14,6 +14,7 @@ export const lightTheme = createTheme({
     },
     contrast: {
       main: "#000000",
+      reverse: "#ffffff",
     },
   },
 })
@@ -32,6 +33,7 @@ export const darkTheme = createTheme({
     },
     contrast: {
       main: "#ffffff",
+      reverse: "#000000",
     },
   },
 })

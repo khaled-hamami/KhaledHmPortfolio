@@ -123,6 +123,7 @@ export default function Navbar() {
 const CustomNavLink = styled(Typography)(({ theme }) => ({
   padding: "1rem",
   color: theme.palette.contrast.main,
+  fontSize: "1.3rem",
   fontWeight: "bold",
   fontFamily: "post-font,great-font,sans-serif",
   cursor: "pointer",
