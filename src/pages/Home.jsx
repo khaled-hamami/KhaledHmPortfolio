@@ -9,6 +9,7 @@ export default function Home() {
       className="homepage"
       sx={{
         color: "rgba(150,150,150,.5)",
+        mt: { xs: "200px", sm: "0px" },
       }}
     >
       <Container
@@ -66,7 +67,16 @@ export default function Home() {
           >
             <AutoTyper />
           </Typography>
-          <Typography variant="h6" sx={{ mt: "5rem", color: "contrast.main", textShadow: "none" }}>
+          <Typography
+            variant="h6"
+            sx={{
+              mt: "5rem",
+              color: "contrast.main",
+              fontFamily: "Helvetica",
+              fontSize: "1.3rem",
+              fontWeight: "600",
+            }}
+          >
             As a Full Stack MERN Developer and IT student, I am dedicated to delivering high-quality
             web solutions that meet the evolving demands of the digital landscape.
           </Typography>
@@ -78,23 +88,23 @@ export default function Home() {
             }}
           >
             <Button
+              className="home-button"
               variant="contained"
               sx={{
                 width: "180px",
-                backgroundColor: "secondary.main",
                 textShadow: "none",
-                "&:hover": { backgroundColor: "contrast.main", color: "contrast.reverse" },
+                "&:hover": { color: "contrast.reverse" },
               }}
             >
               Contact me
             </Button>
             <Button
+              className="home-button"
               variant="contained"
               sx={{
                 width: "180px",
-                backgroundColor: "secondary.main",
                 textShadow: "none",
-                "&:hover": { backgroundColor: "contrast.main", color: "contrast.reverse" },
+                "&:hover": { color: "contrast.reverse" },
               }}
             >
               Download my cv
@@ -110,22 +120,46 @@ export default function Home() {
           <img width="100%" height="100%" src={pc} alt="pc image" />
         </Box>
       </Container>
-      <Container maxWidth="xl" sx={{ width: "100%" }}>
+      <Container maxWidth="xl" sx={{ width: "100%", mt: { xs: "130px", sm: "0" } }}>
+        <hr
+          className="style-seven"
+          style={{
+            position: "absolute",
+            left: "0",
+            right: "0",
+            width: "100%",
+          }}
+        />
+        <br />
+        <hr
+          className="style-seven"
+          style={{
+            position: "absolute",
+            left: "0",
+            right: "0",
+            width: "100%",
+          }}
+        />
         <Typography
           variant="h4"
           sx={{
             color: "contrast.main",
-            mt: "5rem",
+            mt: "3.5rem",
+            fontFamily: "inherit",
             fontSize: { xs: "1.5rem", md: "2rem", lg: "2.5rem" },
           }}
         >
-          Get to know me
+          Get to know<label style={{ color: "#be33f5" }}> me</label>
         </Typography>
-        <Typography variant="h6" mt="2rem" sx={{ color: "contrast.main", textShadow: "none" }}>
-          Hello! I'm Khaled Hammami, a 2nd year IT student at ISET Nabeul. Amazed by new
+        <Typography
+          variant="h6"
+          mt="2rem"
+          sx={{ color: "contrast.main", textShadow: "none", fontFamily: "inherit" }}
+        >
+          Hello! I'm Khaled Hammami <br /> a 2nd year IT student at ISET Nabeul. Amazed by new
           technologies, I'm on a path to become a professional developer. Also my fascination with
-          computer science led me to become part of an amazing communities. As I continue to learn
-          and grow, I will further contribute to the world of technology
+          computer science led me to become part of an amazing communities. <br />
+          As I continue to learn and grow, I will further contribute to the world of technology
         </Typography>
       </Container>
     </Box>
