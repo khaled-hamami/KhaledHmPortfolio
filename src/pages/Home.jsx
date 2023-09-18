@@ -1,7 +1,7 @@
 import { Box, Button, Container, IconButton, Typography } from "@mui/material"
 import { AutoTyper } from "../utils/AutoTyper"
 import pc from "../assets/image.png"
-import MouseIcon from "@mui/icons-material/Mouse"
+import MouseIcon from "@mui/icons-material/Mouse" 
 
 export default function Home() {
   return (
