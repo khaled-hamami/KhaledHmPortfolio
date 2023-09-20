@@ -1,5 +1,5 @@
 import React from "react"
-import { Box, Checkbox, Switch, Typography } from "@mui/material"
+import { Box, Checkbox, IconButton, Switch, Typography } from "@mui/material"
 import styled from "@emotion/styled"
 import { Paper } from "@mui/material"
 import { useDispatch } from "react-redux"
@@ -7,6 +7,7 @@ import "../styles/index.css"
 import { setDarkMode } from "../redux/darkModeSlice"
 import { setParticlesFalse, setParticlesTrue } from "../redux/particlesSlice"
 import { setSettingsVisible } from "../redux/settingsSlice"
+import CloseIcon from "@mui/icons-material/Close"
 
 export default function Settings() {
   const dispatch = useDispatch()
@@ -37,9 +38,15 @@ export default function Settings() {
         outline: "2px solid #cd5ff8",
         backdropFilter: "blur(3px)",
         boxShadow: "5px 5px 10px 2px purple",
-        paddingY: "15px",
+        paddingBottom: "15px",
       }}
     >
+      <IconButton
+        sx={{ alignSelf: "flex-end", color: "contrast.main" }}
+        onClick={() => dispatch(setSettingsVisible())}
+      >
+        <CloseIcon />
+      </IconButton>
       <Typography sx={{ fontWeight: "bold", marginBottom: "50px", fontSize: "1.8rem" }}>
         Settings
       </Typography>

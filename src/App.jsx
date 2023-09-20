@@ -11,6 +11,7 @@ import Contact from "./pages/Contact"
 import About from "./pages/About"
 import Settings from "./components/Settings"
 import { useSelector } from "react-redux"
+import Footer from "./components/Footer"
 
 export default function App() {
   const { darkMode } = useSelector((state) => state.darkMode)
@@ -36,6 +37,7 @@ export default function App() {
             <Route path="/about" Component={About} />
             <Route path="/contact" Component={Contact} />
           </Routes>
+          <Footer />
         </Router>
       </Box>
     </ThemeProvider>

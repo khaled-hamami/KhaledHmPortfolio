@@ -5,8 +5,10 @@ import SegmentSharpIcon from "@mui/icons-material/SegmentSharp"
 import { useNavigate } from "react-router"
 import { useDispatch } from "react-redux"
 import { setSettingsVisible } from "../redux/settingsSlice"
-import "../styles/index.css"
 import { useEffect, useState } from "react"
+import { NavLink } from "react-router-dom"
+import "../styles/index.css"
+
 import Tilt from "react-parallax-tilt"
 
 export default function Navbar() {
@@ -86,11 +88,46 @@ export default function Navbar() {
               fontFamily: "post-font,great-font,sans-serif",
             }}
           >
-            <CustomNavLink onClick={() => navigate("/")}>Home</CustomNavLink>
-            <CustomNavLink onClick={() => navigate("/projects")}>Projects</CustomNavLink>
-            <CustomNavLink onClick={() => navigate("/certificates")}>Certificates</CustomNavLink>
-            <CustomNavLink onClick={() => navigate("/contact")}>Contact</CustomNavLink>
-            <CustomNavLink onClick={() => navigate("/about")}>About</CustomNavLink>
+            <CustomNavLink
+              style={({ isActive }) => {
+                return { color: isActive ? "#be33f5" : "" }
+              }}
+              to="/"
+            >
+              Home
+            </CustomNavLink>
+            <CustomNavLink
+              style={({ isActive }) => {
+                return { color: isActive ? "#be33f5" : "" }
+              }}
+              to="/projects"
+            >
+              Projects
+            </CustomNavLink>
+            <CustomNavLink
+              style={({ isActive }) => {
+                return { color: isActive ? "#be33f5" : "" }
+              }}
+              to="/certificates"
+            >
+              Certificates
+            </CustomNavLink>
+            <CustomNavLink
+              style={({ isActive }) => {
+                return { color: isActive ? "#be33f5" : "" }
+              }}
+              to="/contact"
+            >
+              Contact
+            </CustomNavLink>
+            <CustomNavLink
+              style={({ isActive }) => {
+                return { color: isActive ? "#be33f5" : "" }
+              }}
+              to="/about"
+            >
+              About
+            </CustomNavLink>
           </Box>
           <IconButton onClick={() => dispatch(setSettingsVisible())}>
             <SettingsSharpIcon
@@ -120,10 +157,11 @@ export default function Navbar() {
     </AppBar>
   )
 }
-const CustomNavLink = styled(Typography)(({ theme }) => ({
+const CustomNavLink = styled(NavLink)(({ theme }) => ({
+  textDecoration: "none",
   padding: "1rem",
   color: theme.palette.contrast.main,
-  fontSize: "1.3rem",
+  fontSize: "1.1rem",
   fontWeight: "bold",
   fontFamily: "post-font,great-font,sans-serif",
   cursor: "pointer",
