@@ -5,13 +5,13 @@ import ParticlesBakground from "./config/Particles"
 import Navbar from "./components/Navbar"
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
 import Home from "./pages/Home.jsx"
-import Projects from "./pages/Projects.jsx"
 import Certificates from "./pages/Certificates"
 import Contact from "./pages/Contact"
 import About from "./pages/About"
 import Settings from "./components/Settings"
 import { useSelector } from "react-redux"
 import Footer from "./components/Footer"
+import Projects from "./pages/Projects.jsx"
 
 export default function App() {
   const { darkMode } = useSelector((state) => state.darkMode)
