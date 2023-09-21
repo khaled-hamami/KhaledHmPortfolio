@@ -1,7 +1,18 @@
 import { Box, Button, Container, IconButton, Typography } from "@mui/material"
 import { AutoTyper } from "../utils/AutoTyper"
+import cv from "../assets/cv.pdf"
 import pc from "../assets/image.png"
-import MouseIcon from "@mui/icons-material/Mouse" 
+
+const handleDownloadClick = () => {
+  const fileUrl = "https://example.com/your-file.pdf"
+
+  const link = document.createElement("a")
+  link.href = cv
+  link.target = "_blank"
+  link.download = "Khaled Hammai | cv"
+
+  link.click()
+}
 
 export default function Home() {
   return (
@@ -106,6 +117,7 @@ export default function Home() {
                 textShadow: "none",
                 "&:hover": { color: "contrast.reverse" },
               }}
+              onClick={() => handleDownloadClick()}
             >
               Download my cv
             </Button>

@@ -9,20 +9,36 @@ const projectData = [
   {
     title: "Tu Casa tn",
     date: "Date 1",
+    about: "Rental Webapp",
     image: tuCasa,
-    description: "rental web app",
+    link: "https://tucasatn.netlify.app/",
+    sourceCode: "https://github.com/khaled-hamami/tuCasa",
+    description: [
+      "REACT JS",
+      "EXPRESS / NODE JS",
+      "MATERIAL-UI",
+      "JOTAI",
+      "YUP",
+      "REACT HOOK FORM",
+    ],
   },
   {
     title: "Back 2 Gaming",
     date: "Date 2",
+    about: "Gaming News ",
     image: Back2Gaming,
-    description: "epic game api ",
+    link: "https://Back2Gaming.netlify.app/",
+    sourceCode: "https://github.com/khaled-hamami/Back2Gaming",
+    description: ["REACT JS", "EPIC GAMES API", "MATERIAL-UI", "REACT-PARALLEX"],
   },
   {
     title: "Absolute Zero",
     date: "Date 3",
+    about: "Heat Unit Converter",
     image: AbsoluteZero,
-    description: "heat unit converter",
+    link: "https://Back2Gaming.netlify.app/",
+    sourceCode: "https://github.com/khaled-hamami/AbsoluteZero",
+    description: ["HTML5", "CSS3", "JAVASCRIPT"],
   },
 ]
 
@@ -55,6 +71,9 @@ export default function ProjectsPage() {
                 date={project.date}
                 image={project.image}
                 description={project.description}
+                about={project.about}
+                link={project.link}
+                sourceCode={project.sourceCode}
               />
             </div>
           ))}
