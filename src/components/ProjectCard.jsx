@@ -146,6 +146,7 @@ export default function ProjectCard({ title, description, image, about, link, so
           <hr
             style={{
               borderTop: "3px double #8c8b8b",
+              boxShadow: '5px 1px 0 0 black"',
             }}
           />
           {description.map((item, index) => {

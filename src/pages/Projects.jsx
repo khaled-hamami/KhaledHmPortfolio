@@ -61,9 +61,14 @@ const projectData = [
 export default function ProjectsPage() {
   return (
     <>
+    <br />
       <Typography variant="h4" gutterBottom>
         Projects
       </Typography>
+      <br />
+      <hr />
+      <hr />
+      <br />
       <Container
         maxWidth="xxl"
         sx={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}

@@ -63,6 +63,7 @@ export default function Navbar() {
             color="primary.main"
             fontFamily="post-font"
             sx={{
+              fontSize: { xs: "1.5rem", md: "1.8rem", lg: "2.2rem" },
               cursor: "pointer",
               flex: "1",
               fontWeight: "600",
@@ -82,9 +83,9 @@ export default function Navbar() {
           <Box
             sx={{
               flex: "6",
-              display: { xs: "none", md: "flex" },
+              display: { xs: "none", sm: "flex" },
               justifyContent: "right",
-              paddingRight: "2rem",
+              paddingRight: {md:'1.5rem',lg:'2rem'},
               fontFamily: "post-font,great-font,sans-serif",
             }}
           >
@@ -141,7 +142,7 @@ export default function Navbar() {
               }}
             />
           </IconButton>
-          <IconButton>
+          <IconButton onClick={() => dispatch(setSettingsVisible())}>
             <SegmentSharpIcon
               sx={{
                 color: "primary.main",
@@ -159,11 +160,10 @@ export default function Navbar() {
 }
 const CustomNavLink = styled(NavLink)(({ theme }) => ({
   textDecoration: "none",
-  padding: "1rem",
   color: theme.palette.contrast.main,
   fontSize: "1.1rem",
   fontWeight: "bold",
-  fontFamily: "post-font,great-font,sans-serif",
+  fontFamily: "post-font, great-font, sans-serif",
   cursor: "pointer",
   position: "relative",
   transition: "color 0.3s ease",
@@ -184,5 +184,19 @@ const CustomNavLink = styled(NavLink)(({ theme }) => ({
     "&::after": {
       width: "80%",
     },
+  },
+
+  // Responsive styling
+  [theme.breakpoints.up("sm")]: {
+    padding: ".3rem",
+    fontSize: ".8rem",
+  },
+  [theme.breakpoints.up("md")]: {
+    padding: ".7rem",
+    fontSize: "1.1rem",
+  },
+  [theme.breakpoints.up("lg")]: {
+    padding: "1rem",
+    fontSize: "1.1rem",
   },
 }))

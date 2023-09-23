@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { Box, ThemeProvider } from "@mui/material"
 import { lightTheme, darkTheme } from "./config/theme"
 import ParticlesBakground from "./config/Particles"
@@ -12,6 +12,7 @@ import Settings from "./components/Settings"
 import { useSelector } from "react-redux"
 import Footer from "./components/Footer"
 import Projects from "./pages/Projects.jsx"
+import Drawer from "./components/Drawer"
 
 export default function App() {
   const { darkMode } = useSelector((state) => state.darkMode)
@@ -38,6 +39,7 @@ export default function App() {
             <Route path="/contact" Component={Contact} />
           </Routes>
           <Footer />
+        <Drawer />
         </Router>
       </Box>
     </ThemeProvider>
