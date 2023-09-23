@@ -1,15 +1,13 @@
-import { Box, Button, Container, IconButton, Typography } from "@mui/material"
+import { Box, Button, Container, Typography } from "@mui/material"
 import { AutoTyper } from "../utils/AutoTyper"
 import cv from "../assets/cv.pdf"
 import pc from "../assets/image.png"
 
 const handleDownloadClick = () => {
-  const fileUrl = "https://example.com/your-file.pdf"
-
   const link = document.createElement("a")
   link.href = cv
   link.target = "_blank"
-  link.download = "Khaled Hammai | cv"
+  link.download = "Khaled_Hammami_cv"
 
   link.click()
 }
@@ -104,7 +102,7 @@ export default function Home() {
               sx={{
                 width: "180px",
                 textShadow: "none",
-                "&:hover": { color: "contrast.reverse" },
+                "&:hover": { color: "contrast.reverse", scale: "1.02" },
               }}
             >
               Contact me
@@ -115,7 +113,7 @@ export default function Home() {
               sx={{
                 width: "180px",
                 textShadow: "none",
-                "&:hover": { color: "contrast.reverse" },
+                "&:hover": { color: "contrast.reverse", scale: "1.02" },
               }}
               onClick={() => handleDownloadClick()}
             >

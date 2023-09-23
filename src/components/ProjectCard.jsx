@@ -12,7 +12,7 @@ import ShareIcon from "@mui/icons-material/Share"
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore"
 import Logo from "../assets/favicon.webp"
 import LaunchIcon from "@mui/icons-material/Launch"
-import { Alert, Button } from "@mui/material"
+import { Alert, Button, Typography } from "@mui/material"
 import GitHub from "@mui/icons-material/GitHub"
 import copyToClipboard from "../utils/CopyToClipboard"
 import CloseIcon from "@mui/icons-material/Close"
@@ -40,18 +40,29 @@ export default function ProjectCard({ title, description, image, about, link, so
   return (
     <Card
       sx={{
+        width: { xs: "90%", sm: "550px", md: "400px", lg: "560px" },
         border: "1px solid #560085",
-        width: "100%",
         borderRadius: "10px",
         padding: "20px",
-        maxWidth: "600px",
-        boxShadow: "6px 6px 8px rgba(0, 0, 0, 0.4)", // Adjust values for shadow
+        marginBottom: "65px",
+        position: "relative",
+        top: "50%",
+        left: "50%",
+        transform: "translate(-50%, -50%)",
+        boxShadow: "5px 5px 10px 2px rgba(120, 0, 255, 0.5)",
       }}
     >
       <CardHeader
         avatar={<Avatar aria-label="avatar" src={Logo} />}
         action={
-          <IconButton aria-label="Github" target="_blank" href={sourceCode}>
+          <IconButton
+            aria-label="Github"
+            target="_blank"
+            href={sourceCode}
+            sx={{
+              "&:hover": { scale: "1.07" },
+            }}
+          >
             <GitHub sx={{ color: "primary.main" }} />
           </IconButton>
         }
@@ -74,39 +85,28 @@ export default function ProjectCard({ title, description, image, about, link, so
         <Button
           variant="contained"
           endIcon={<LaunchIcon />}
-          sx={{ mr: "10px", borderRadius: "20px 0 20px 0 " }}
+          sx={{
+            fontSize: { xs: ".6rem", sm: ".7rem", md: ".8rem", lg: ".85rem" },
+            mr: "10px",
+            borderRadius: "20px 0 20px 0",
+            fontWeight: "bold",
+            "&:hover": { scale: "1.05" },
+          }}
           href={link}
           target="_blank"
         >
           VISIT
         </Button>
         {/*small popup to inform that the site link has been copied*/}
-        {open && (
-          <div>
-            <Collapse in={open} sx={{ mx: "10px" }}>
-              <Alert
-                action={
-                  <IconButton
-                    aria-label="close"
-                    color="inherit"
-                    size="small"
-                    onClick={() => {
-                      setOpen(false)
-                    }}
-                  >
-                    <CloseIcon fontSize="inherit" />
-                  </IconButton>
-                }
-                sx={{ mb: 2 }}
-              >
-                Site link has been Copied
-              </Alert>
-            </Collapse>
-          </div>
-        )}
         <Button
           variant="contained"
-          sx={{ borderRadius: "20px 0 20px 0 " }}
+          sx={{
+            borderRadius: "20px 0 20px 0",
+            fontWeight: "bold",
+            "&:hover": { scale: "1.02" },
+            fontSize: { xs: ".6rem", sm: ".7rem", md: ".8rem", lg: ".85rem" },
+            mr: "10px",
+          }}
           endIcon={<ShareIcon />}
           onClick={() => {
             copyToClipboard(link)
@@ -116,12 +116,29 @@ export default function ProjectCard({ title, description, image, about, link, so
           SHARE
         </Button>
         <ExpandMore
+          sx={{
+            boxShadow: "0 4px 6px rgba(150, 0, 255, 0.5)",
+            borderRadius: "20px 0 20px",
+            "&:hover": { scale: "1.05" },
+            height: "33px",
+            mt: "-1px",
+          }}
           expand={expanded}
           onClick={handleExpandClick}
           aria-expanded={expanded}
           aria-label="show more"
         >
-          <ExpandMoreIcon />
+          <Typography
+            sx={{
+              fontWeight: "bold",
+              fontSize: { xs: ".6rem", sm: ".7rem", md: ".8rem", lg: ".85rem" },
+              color: "contrast.main",
+            }}
+            display={expanded ? "none" : "block"}
+          >
+            Techstack
+          </Typography>
+          <ExpandMoreIcon sx={{ color: "contrast.main" }} />
         </ExpandMore>
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit sx={{ width: "100%" }}>
@@ -142,7 +159,10 @@ export default function ProjectCard({ title, description, image, about, link, so
                   fontWeight: "bold",
                   background: "linear-gradient(to left, #a200ff, #5d2bff, #3498db) ",
                   color: "contrast.reverse",
-                  "&:hover": { color: "contrast.main" },
+                  "&:hover": {
+                    scale: "1.02",
+                    color: "contrast.main",
+                  },
                 }}
               >
                 {item}
@@ -151,6 +171,29 @@ export default function ProjectCard({ title, description, image, about, link, so
           })}
         </CardContent>
       </Collapse>
+      {open && (
+        <div>
+          <Collapse in={open} sx={{ mx: "10px" }}>
+            <Alert
+              action={
+                <IconButton
+                  aria-label="close"
+                  color="inherit"
+                  size="small"
+                  onClick={() => {
+                    setOpen(false)
+                  }}
+                >
+                  <CloseIcon fontSize="inherit" />
+                </IconButton>
+              }
+              sx={{ mb: 2 }}
+            >
+              Site link has been Copied
+            </Alert>
+          </Collapse>
+        </div>
+      )}
     </Card>
   )
 }

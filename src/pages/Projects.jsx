@@ -4,10 +4,12 @@ import ProjectCard from "../components/ProjectCard"
 import tuCasa from "../assets/tuCasa.png"
 import Back2Gaming from "../assets/Back2Gaming.png"
 import AbsoluteZero from "../assets/AbsoluteZero.png"
+import Python from "../assets/Python.png"
+import Portfolio from "../assets/Portfolio.png"
 
 const projectData = [
   {
-    title: "Tu Casa tn",
+    title: "TU CASA TN",
     date: "Date 1",
     about: "Rental Webapp",
     image: tuCasa,
@@ -23,8 +25,7 @@ const projectData = [
     ],
   },
   {
-    title: "Back 2 Gaming",
-    date: "Date 2",
+    title: "BACK TO GAMING",
     about: "Gaming News ",
     image: Back2Gaming,
     link: "https://Back2Gaming.netlify.app/",
@@ -32,13 +33,28 @@ const projectData = [
     description: ["REACT JS", "EPIC GAMES API", "MATERIAL-UI", "REACT-PARALLEX"],
   },
   {
-    title: "Absolute Zero",
-    date: "Date 3",
+    title: "ABSOLUTE ZERO",
     about: "Heat Unit Converter",
     image: AbsoluteZero,
     link: "https://Back2Gaming.netlify.app/",
     sourceCode: "https://github.com/khaled-hamami/AbsoluteZero",
     description: ["HTML5", "CSS3", "JAVASCRIPT"],
+  },
+  {
+    title: "VIDEO GAMES PYHTON ANALYSIS",
+    about: "vg sales ",
+    image: Python,
+    link: "https://drive.google.com/drive/folders/14CdupGO8Sqo5IeyCQcrxppFaxR7ViQsH?usp=sharing",
+    sourceCode: "https://github.com/khaled-hamami/Py-VgSales-Analysis",
+    description: ["NUMPY", "SEABORN", "MATPLOTLIB", "PANDAS"],
+  },
+  {
+    title: "PORTFOLIO",
+    about: "My Personal Portfolio",
+    image: Portfolio,
+    link: "https://KhaledHmtn",
+    sourceCode: "https://github.com/khaled-hamami/KhaledHmPortfolio",
+    description: ["REACT", "REDUX | TOOLKIT", "JOTAI", "MATERIAL-UI", "TS-PARTICLES"],
   },
 ]
 
@@ -49,8 +65,8 @@ export default function ProjectsPage() {
         Projects
       </Typography>
       <Container
-        maxWidth="xl"
-        sx={{ display: "flex", flexWrap: "wrap", justifyContent: "space-evenly" }}
+        maxWidth="xxl"
+        sx={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}
       >
         <br />
         <br />
@@ -61,14 +77,15 @@ export default function ProjectsPage() {
             <div
               key={index}
               style={{
-                width: { xs: "100%", sm: "80%", lg: "50%" },
-                marginBottom: "50px",
-                mb: { xs: "50px", sm: "60px", md: "70px" },
+                marginBottom: {
+                  xs: "50px",
+                  sm: "60px",
+                  md: "70px",
+                },
               }}
             >
               <ProjectCard
                 title={project.title}
-                date={project.date}
                 image={project.image}
                 description={project.description}
                 about={project.about}

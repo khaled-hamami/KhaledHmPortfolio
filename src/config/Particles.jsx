@@ -1,5 +1,5 @@
 import { useCallback } from "react"
-import { useDispatch, useSelector } from "react-redux"
+import {  useSelector } from "react-redux"
 import { Particles } from "react-tsparticles"
 import { loadSlim } from "tsparticles-slim" // npm i tsparticles-slim
 
