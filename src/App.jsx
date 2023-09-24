@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { Box, ThemeProvider } from "@mui/material"
 import { lightTheme, darkTheme } from "./config/theme"
 import ParticlesBakground from "./config/Particles"
@@ -15,6 +15,14 @@ import Projects from "./pages/Projects.jsx"
 import Drawer from "./components/Drawer"
 
 export default function App() {
+  useEffect(() => {
+    //to set the theme to default only if this is the first site visit
+    const checkTheme = () => {
+      if (localStorage.getItem("theme") == null) localStorage.setItem("theme", "lightMode")
+    }
+    checkTheme()
+  }, [])
+
   const { darkMode } = useSelector((state) => state.darkMode)
   const { settingsVisible } = useSelector((state) => state.settings)
   return (
@@ -39,7 +47,7 @@ export default function App() {
             <Route path="/contact" Component={Contact} />
           </Routes>
           <Footer />
-        <Drawer />
+          <Drawer />
         </Router>
       </Box>
     </ThemeProvider>

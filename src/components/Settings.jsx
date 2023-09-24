@@ -2,7 +2,7 @@ import React from "react"
 import { Box, Checkbox, IconButton, Switch, Typography } from "@mui/material"
 import styled from "@emotion/styled"
 import { Paper } from "@mui/material"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import "../styles/index.css"
 import { setDarkMode } from "../redux/darkModeSlice"
 import { setParticlesFalse, setParticlesTrue } from "../redux/particlesSlice"
@@ -11,11 +11,11 @@ import CloseIcon from "@mui/icons-material/Close"
 
 export default function Settings() {
   const dispatch = useDispatch()
-
   const onChange = (event) => {
     const checked = event.target.checked
     checked ? dispatch(setParticlesTrue()) : dispatch(setParticlesFalse())
   }
+  const { darkMode } = useSelector((state) => state.darkMode)
 
   // the settings component
 
@@ -41,6 +41,7 @@ export default function Settings() {
         paddingBottom: "15px",
       }}
     >
+      {console.log(darkMode)}
       <IconButton
         sx={{ alignSelf: "flex-end", color: "contrast.main" }}
         onClick={() => dispatch(setSettingsVisible())}
@@ -52,7 +53,14 @@ export default function Settings() {
       </Typography>
       <Box display="flex" width="60%" justifyContent="space-between" alignItems="center">
         <Typography fontWeight="Bold">theme</Typography>
-        <Box onClick={() => dispatch(setDarkMode())}>
+        <Box
+          onClick={() => {
+            dispatch(setDarkMode())
+
+            //   toogle theme
+            localStorage.setItem("theme", darkMode == true ? "lightMode" : "darkMode")
+          }}
+        >
           <ThemeSwitcher />
         </Box>
       </Box>

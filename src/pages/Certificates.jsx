@@ -1,3 +1,62 @@
+import { Box, Container, Typography } from "@mui/material"
+import CertificateCard from "../components/CertificateCard"
+import googleCertif from "../assets/certif1.png"
+
+const CertificateData = [
+  {
+    title: "GOOGLE",
+    image: googleCertif,
+    date: "9/07/2023",
+    about: "Technical Support Fundamentals",
+    link: "https://www.coursera.org/account/accomplishments/certificate/QBTV8WLKBQ76",
+    linkedIn:
+      "https://www.linkedin.com/posts/khaledhm_google-technical-support-fundamentals-activity-7105627857451716608-Egyn?utm_source=share&utm_medium=member_desktop",
+  },
+]
+
 export default function Certificates() {
-  return <></>
+  return (
+    <>
+      <br />
+      <Typography variant="h4" gutterBottom>
+        Certificates
+      </Typography>
+      <br />
+      <hr />
+      <hr />
+      <br />
+      <Container
+        maxWidth="xxl"
+        sx={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}
+      >
+        <br />
+        <br />
+        <br />
+        <Box width="100%" display="flex" flexWrap="wrap" justifyContent="space-evenly">
+          {CertificateData.map((certificate, index) => (
+            /*the div is for isolating the state so it desnt becoe shared*/
+            <div
+              key={index}
+              style={{
+                marginBottom: {
+                  xs: "50px",
+                  sm: "60px",
+                  md: "70px",
+                },
+              }}
+            >
+              <CertificateCard
+                title={certificate.title}
+                date={certificate.date}
+                image={certificate.image}
+                about={certificate.about}
+                link={certificate.link}
+                linkedIn={certificate.linkedIn}
+              />
+            </div>
+          ))}
+        </Box>
+      </Container>
+    </>
+  )
 }
