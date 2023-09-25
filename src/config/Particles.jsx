@@ -1,10 +1,9 @@
 import { useCallback } from "react"
-import {  useSelector } from "react-redux"
+import { useSelector } from "react-redux"
 import { Particles } from "react-tsparticles"
 import { loadSlim } from "tsparticles-slim" // npm i tsparticles-slim
 
 export default function ParticlesBakground({ mode }) {
-
   const { particles } = useSelector((state) => state.particles)
   const particlesInit = useCallback(async (engine) => {
     await loadSlim(engine)
@@ -20,7 +19,7 @@ export default function ParticlesBakground({ mode }) {
             value: "trasparent",
           },
         },
-        fpsLimit: 60,
+        fpsLimit: 240,
         interactivity: {
           events: {
             onClick: {

@@ -117,9 +117,9 @@ export default function Navbar() {
               style={({ isActive }) => {
                 return { color: isActive ? "#be33f5" : "" }
               }}
-              to="/contact"
+              to="/resume"
             >
-              Contact
+              Resume
             </CustomNavLink>
             <CustomNavLink
               style={({ isActive }) => {

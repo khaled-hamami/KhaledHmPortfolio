@@ -1,6 +1,7 @@
 import { Box, Container, Typography } from "@mui/material"
 import CertificateCard from "../components/CertificateCard"
 import googleCertif from "../assets/certif1.png"
+import canvaCertif from "../assets/certif2.png"
 
 const CertificateData = [
   {
@@ -12,6 +13,15 @@ const CertificateData = [
     linkedIn:
       "https://www.linkedin.com/posts/khaledhm_google-technical-support-fundamentals-activity-7105627857451716608-Egyn?utm_source=share&utm_medium=member_desktop",
   },
+  {
+    title: "CANVA",
+    image: canvaCertif,
+    date: "9/22/2023",
+    about: "Canva Desings Certificate",
+    link: "",
+    linkedIn: "",
+  },
+  
 ]
 
 export default function Certificates() {

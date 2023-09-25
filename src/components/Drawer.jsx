@@ -7,7 +7,6 @@ import { grey } from "@mui/material/colors"
 import Box from "@mui/material/Box"
 import SwipeableDrawer from "@mui/material/SwipeableDrawer"
 import "../styles/index.css"
-import { Typography } from "@mui/material"
 import { NavLink } from "react-router-dom"
 const drawerBleeding = 25
 
@@ -133,7 +132,7 @@ export default function Drawer(props) {
               height: "100%",
             }}
           >
-            <CustomNavLink to="/contact">CONTACT</CustomNavLink>
+            <CustomNavLink to="/resume">RESUME</CustomNavLink>
           </Box>
           <hr />
           <Box

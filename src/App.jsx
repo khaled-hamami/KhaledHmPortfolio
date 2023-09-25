@@ -1,21 +1,30 @@
-import React, { useEffect, useState } from "react"
-import { Box, ThemeProvider } from "@mui/material"
+import React, { useState, useEffect } from "react"
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
+import { useSelector } from "react-redux"
+const Home = React.lazy(() => import("./pages/Home.jsx"))
+const Projects = React.lazy(() => import("./pages/Projects.jsx"))
+const Certificates = React.lazy(() => import("./pages/Certificates.jsx"))
+const Resume = React.lazy(() => import("./pages/Resume.jsx"))
+const About = React.lazy(() => import("./pages/About.jsx"))
+import Footer from "./components/Footer"
 import { lightTheme, darkTheme } from "./config/theme"
 import ParticlesBakground from "./config/Particles"
 import Navbar from "./components/Navbar"
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
-import Home from "./pages/Home.jsx"
-import Certificates from "./pages/Certificates"
-import Contact from "./pages/Contact"
-import About from "./pages/About"
 import Settings from "./components/Settings"
-import { useSelector } from "react-redux"
-import Footer from "./components/Footer"
-import Projects from "./pages/Projects.jsx"
 import Drawer from "./components/Drawer"
+import RouteError from "./pages/RouteError"
+import { ErrorBoundary } from "./components/ErrorBoudary"
+//ThemeProvider must be imported before Box or it will cause some issues
+import Loader from "./pages/Loader"
+import { ThemeProvider } from "@emotion/react"
+import { Box } from "@mui/material"
 
 export default function App() {
+  //loader
+  const [loading, setLoading] = useState(true)
+
   useEffect(() => {
+    setLoading(false)
     //to set the theme to default only if this is the first site visit
     const checkTheme = () => {
       if (localStorage.getItem("theme") == null) localStorage.setItem("theme", "lightMode")
@@ -25,7 +34,9 @@ export default function App() {
 
   const { darkMode } = useSelector((state) => state.darkMode)
   const { settingsVisible } = useSelector((state) => state.settings)
-  return (
+  return loading ? (
+    <Loader loading={loading} />
+  ) : (
     <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
       <ParticlesBakground mode={darkMode} />
       <Box
@@ -37,17 +48,57 @@ export default function App() {
         }}
       >
         <Router>
-          <Navbar />
-          {settingsVisible && <Settings />}
-          <Routes>
-            <Route path="/" Component={Home} />
-            <Route path="/projects" Component={Projects} />
-            <Route path="/certificates" Component={Certificates} />
-            <Route path="/about" Component={About} />
-            <Route path="/contact" Component={Contact} />
-          </Routes>
-          <Footer />
-          <Drawer />
+          <ErrorBoundary>
+            <Navbar />
+
+            {settingsVisible && <Settings />}
+            <Routes>
+              <Route
+                path="/projects"
+                element={
+                  <React.Suspense>
+                    <Projects />
+                  </React.Suspense>
+                }
+              />
+              <Route
+                path="/"
+                element={
+                  <React.Suspense>
+                    <Home />
+                  </React.Suspense>
+                }
+              />
+              <Route
+                path="/certificates"
+                element={
+                  <React.Suspense>
+                    <Certificates />
+                  </React.Suspense>
+                }
+              />
+              <Route
+                path="/about"
+                element={
+                  <React.Suspense>
+                    <About />
+                  </React.Suspense>
+                }
+              />
+              <Route
+                path="/resume"
+                element={
+                  <React.Suspense>
+                    <Resume />
+                  </React.Suspense>
+                }
+              />
+
+              <Route path="/*" Component={RouteError} />
+            </Routes>
+            <Footer />
+            <Drawer />
+          </ErrorBoundary>
         </Router>
       </Box>
     </ThemeProvider>

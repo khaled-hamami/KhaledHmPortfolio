@@ -1,11 +1,11 @@
 import { Container, Typography } from "@mui/material"
 
-export default function About() {
+export default function Resume() {
   return (
     <>
       <br />
       <Typography variant="h4" gutterBottom>
-        About
+        Resume
       </Typography>
       <br />
       <hr />

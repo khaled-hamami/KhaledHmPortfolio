@@ -4,7 +4,6 @@ import { GitHub, Facebook, LinkedIn, Email } from "@mui/icons-material"
 import Popup from "../utils/Popup"
 import Logo from "../assets/favicon.webp"
 import styled from "@emotion/styled"
-import { useNavigate } from "react-router"
 import copyToClipboard from "../utils/CopyToClipboard"
 
 const redirect = (link) => {
