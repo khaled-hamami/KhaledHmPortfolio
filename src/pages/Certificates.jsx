@@ -21,14 +21,13 @@ const CertificateData = [
     link: "",
     linkedIn: "",
   },
-  
 ]
 
 export default function Certificates() {
   return (
     <>
       <br />
-      <Typography variant="h4" gutterBottom>
+      <Typography ml="20px" variant="h4" gutterBottom>
         Certificates
       </Typography>
       <br />

@@ -24,6 +24,7 @@ import reduxLogo from "../assets/Logos/redux.png"
 import typescriptLogo from "../assets/Logos/typescript.png"
 import vscodeLogo from "../assets/Logos/vscode.png"
 import AboutSkillCard from "../components/AboutSkillCard"
+import Tilt from "react-parallax-tilt"
 
 const Skills = {
   react: react,
@@ -31,45 +32,63 @@ const Skills = {
   node: nodeLogo,
   express: expressLogo,
   mui: muiLogo,
-  mongoose: mongooseLogo,
-  c: cLogo,
-  css: cssLogo,
-  docker: dockerLogo,
-  git: gitLogo,
   html: htmlLogo,
-  java: javaLogo,
+  css: cssLogo,
   canva: canvaLogo,
-  jira: jiraLogo,
-  js: jsLogo,
-  linux: linuxLogo,
-  oracle: oracleLogo,
+  c: cLogo,
   python: pythonLogo,
+  java: javaLogo,
+  js: jsLogo,
+  oracle: oracleLogo,
+  mongoose: mongooseLogo,
   redux: reduxLogo,
   typescript: typescriptLogo,
+  git: gitLogo,
+  docker: dockerLogo,
+  jira: jiraLogo,
   vscode: vscodeLogo,
+  linux: linuxLogo,
 }
-import { useSelector } from "react-redux"
 
 export default function About() {
-
   return (
     <>
       <br />
-      <Typography variant="h4" gutterBottom>
+      <Typography ml="20px" variant="h4" gutterBottom>
         About
       </Typography>
       <br />
       <hr />
       <hr />
       <br />
-      <Container
-        maxWidth="xxl"
-        sx={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}
+      <fieldset
+        style={{
+          width: "95%",
+          objectPosition: "center",
+          margin: "0 auto",
+          borderColor: " #783cc2",
+          borderRadius: "20px",
+        }}
       >
-        {Object.keys(Skills).map((skill) => (
-          <AboutSkillCard img={Skills[skill]} title={skill} key={skill} />
-        ))}
-      </Container>
+        <legend style={{ marginLeft: "30px" }}>
+          <Typography variant="h4" gutterBottom>
+            TechStack
+          </Typography>
+        </legend>
+        <Container
+          maxWidth="xxl"
+          sx={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}
+        >
+          {Object.keys(Skills).map((skill) => (
+            <Tilt perspective={1000} glareEnable={false} glareColor="transparent" key={skill}>
+              <AboutSkillCard img={Skills[skill]} title={skill} />
+            </Tilt>
+          ))}
+        </Container>
+      </fieldset>
+      <Typography m="120px 20px" variant="h4" gutterBottom>
+        Contact
+      </Typography>
     </>
   )
 }

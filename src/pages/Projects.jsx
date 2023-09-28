@@ -61,8 +61,8 @@ const projectData = [
 export default function ProjectsPage() {
   return (
     <>
-    <br />
-      <Typography variant="h4" gutterBottom>
+      <br />
+      <Typography ml="20px" variant="h4" gutterBottom>
         Projects
       </Typography>
       <br />

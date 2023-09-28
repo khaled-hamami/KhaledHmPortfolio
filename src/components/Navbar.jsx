@@ -7,9 +7,9 @@ import { useDispatch } from "react-redux"
 import { setSettingsVisible } from "../redux/settingsSlice"
 import { useEffect, useState } from "react"
 import { NavLink } from "react-router-dom"
+import Tilt from "react-parallax-tilt"
 import "../styles/index.css"
 
-import Tilt from "react-parallax-tilt"
 
 export default function Navbar() {
   const dispatch = useDispatch()
