@@ -5,13 +5,21 @@ import { Paper } from "@mui/material"
 import { useDispatch, useSelector } from "react-redux"
 import "../styles/index.css"
 import { setDarkMode } from "../redux/darkModeSlice"
+import {
+  setParticlesInteractivityFalse,
+  setParticlesInteractivityTrue,
+} from "../redux/particlesInteractivitySlice"
 import { setParticlesFalse, setParticlesTrue } from "../redux/particlesSlice"
 import { setSettingsVisible } from "../redux/settingsSlice"
 import CloseIcon from "@mui/icons-material/Close"
 
 export default function Settings() {
   const dispatch = useDispatch()
-  const onChange = (event) => {
+  const onChangeInteractivity = (event) => {
+    const checked = event.target.checked
+    checked ? dispatch(setParticlesInteractivityTrue()) : dispatch(setParticlesInteractivityFalse())
+  }
+  const onChangeParticles = (event) => {
     const checked = event.target.checked
     checked ? dispatch(setParticlesTrue()) : dispatch(setParticlesFalse())
   }
@@ -41,7 +49,6 @@ export default function Settings() {
         paddingBottom: "15px",
       }}
     >
-      {console.log(darkMode)}
       <IconButton
         sx={{ alignSelf: "flex-end", color: "contrast.main" }}
         onClick={() => dispatch(setSettingsVisible())}
@@ -61,13 +68,28 @@ export default function Settings() {
             localStorage.setItem("theme", darkMode == true ? "lightMode" : "darkMode")
           }}
         >
-          <ThemeSwitcher />
+          <ThemeSwitcher id="themeSwitcher" />
         </Box>
+      </Box>
+      <Box display="flex" width="60%" justifyContent="space-between" alignItems="center">
+        <Typography fontWeight="Bold"> particles </Typography>
+        <Checkbox 
+        id="Particle"
+        onChange={onChangeParticles}
+        defaultChecked={window.innerWidth < 400 ? false : true}
+          sx={{
+            color: "#cd5ff8",
+            "&.Mui-checked": {
+              color: "#cd5ff8",
+            },
+          }}
+          />
       </Box>
       <Box display="flex" width="60%" justifyContent="space-between" alignItems="center">
         <Typography fontWeight="Bold"> particles interactivity</Typography>
         <Checkbox
-          onChange={onChange}
+          id="Particle Interactivity"
+          onChange={onChangeInteractivity}
           defaultChecked
           sx={{
             color: "#cd5ff8",

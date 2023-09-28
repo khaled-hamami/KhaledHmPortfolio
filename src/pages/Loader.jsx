@@ -7,7 +7,7 @@ export default function Loader({ loading }) {
   return (
     <Box
       sx={{
-        backgroundColor: darkMode ? "#08000f" : "#c399ff",
+        backgroundColor: darkMode ? "#0a0a0a" : "#fff",
         width: "100%",
         height: "100vh",
         display: "flex",
@@ -18,7 +18,7 @@ export default function Loader({ loading }) {
       <RingLoader
         color={"#be33f5"}
         loading={loading}
-        size={50}
+        size={100}
         aria-label="Loading Spinner"
         data-testid="loader"
       />

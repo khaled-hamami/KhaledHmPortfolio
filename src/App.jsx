@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 const Home = React.lazy(() => import("./pages/Home.jsx"))
 const Projects = React.lazy(() => import("./pages/Projects.jsx"))
 const Certificates = React.lazy(() => import("./pages/Certificates.jsx"))
@@ -11,6 +11,8 @@ import { lightTheme, darkTheme } from "./config/theme"
 import ParticlesBakground from "./config/Particles"
 import Navbar from "./components/Navbar"
 import Settings from "./components/Settings"
+import { setParticlesFalse } from "./redux/particlesSlice"
+
 import Drawer from "./components/Drawer"
 import RouteError from "./pages/RouteError"
 import { ErrorBoundary } from "./components/ErrorBoudary"
@@ -20,9 +22,9 @@ import { ThemeProvider } from "@emotion/react"
 import { Box } from "@mui/material"
 
 export default function App() {
+  const dispatch = useDispatch()
   //loader
   const [loading, setLoading] = useState(true)
-
   useEffect(() => {
     setLoading(false)
     //to set the theme to default only if this is the first site visit
@@ -30,15 +32,23 @@ export default function App() {
       if (localStorage.getItem("theme") == null) localStorage.setItem("theme", "lightMode")
     }
     checkTheme()
+    
+    // disable the particles if the device is phone to reduce lag
+    if (window.innerWidth < 400) {
+      dispatch(setParticlesFalse())
+      console.log(window.innerWidth)
+    }
   }, [])
 
+  const { particlesVisible } = useSelector((state) => state.particles)
   const { darkMode } = useSelector((state) => state.darkMode)
   const { settingsVisible } = useSelector((state) => state.settings)
+
   return loading ? (
     <Loader loading={loading} />
   ) : (
     <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
-      <ParticlesBakground mode={darkMode} />
+      {particlesVisible && <ParticlesBakground mode={darkMode} />}
       <Box
         className="background"
         sx={{
@@ -54,25 +64,25 @@ export default function App() {
             {settingsVisible && <Settings />}
             <Routes>
               <Route
-                path="/projects"
+                path="/"
                 element={
-                  <React.Suspense>
-                    <Projects />
+                  <React.Suspense fallback={<Loader />}>
+                    <Home />
                   </React.Suspense>
                 }
               />
               <Route
-                path="/"
+                path="/projects"
                 element={
-                  <React.Suspense>
-                    <Home />
+                  <React.Suspense fallback={<Loader />}>
+                    <Projects />
                   </React.Suspense>
                 }
               />
               <Route
                 path="/certificates"
                 element={
-                  <React.Suspense>
+                  <React.Suspense fallback={<Loader />}>
                     <Certificates />
                   </React.Suspense>
                 }
@@ -80,7 +90,7 @@ export default function App() {
               <Route
                 path="/about"
                 element={
-                  <React.Suspense>
+                  <React.Suspense fallback={<Loader />}>
                     <About />
                   </React.Suspense>
                 }
@@ -88,7 +98,7 @@ export default function App() {
               <Route
                 path="/resume"
                 element={
-                  <React.Suspense>
+                  <React.Suspense fallback={<Loader />}>
                     <Resume />
                   </React.Suspense>
                 }

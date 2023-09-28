@@ -11,7 +11,15 @@ import AllInclusiveIcon from "@mui/icons-material/AllInclusive"
 import LinkedInIcon from "@mui/icons-material/LinkedIn"
 import "../styles/index.css"
 
-export default function CertificateCard({ title, date, image, about, link, linkedIn }) {
+export default function CertificateCard({
+  title,
+  date,
+  image,
+  about,
+  link,
+  linkedIn,
+  backgroundImage,
+}) {
   return (
     <Card
       sx={{
@@ -34,17 +42,19 @@ export default function CertificateCard({ title, date, image, about, link, linke
         title={title}
         subheader={about}
       />
-      <CardMedia
-        height={307}
-        component="img"
-        image={image}
-        alt="Paella dish"
-        loading="lazy"
-        sx={{
-          borderRadius: "5px",
-          boxShadow: "4px 4px 6px rgba(0, 0, 0, 0.2)", // Adjust values for shadow
-        }}
-      />
+      <div className="blured" style={{ backgroundImage: backgroundImage }}>
+        <CardMedia
+          height={307}
+          component="img"
+          image={image}
+          alt="Paella dish"
+          loading="lazy"
+          sx={{
+            borderRadius: "5px",
+            boxShadow: "4px 4px 6px rgba(0, 0, 0, 0.2)", // Adjust values for shadow
+          }}
+        />
+      </div>
       <CardContent></CardContent>
       <CardActions disableSpacing>
         <Button

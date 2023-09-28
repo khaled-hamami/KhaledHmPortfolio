@@ -159,7 +159,7 @@ export default function Home() {
             fontSize: { xs: "1.5rem", md: "2rem", lg: "2.5rem" },
           }}
         >
-          Get to know<label style={{ color: "#be33f5" }}> me</label>
+          Get to know<span style={{ color: "#be33f5" }}> me</span>
         </Typography>
         <Typography
           variant="h6"

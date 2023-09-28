@@ -4,7 +4,7 @@ import { Particles } from "react-tsparticles"
 import { loadSlim } from "tsparticles-slim" // npm i tsparticles-slim
 
 export default function ParticlesBakground({ mode }) {
-  const { particles } = useSelector((state) => state.particles)
+  const { particlesInteractivity } = useSelector((state) => state.particlesInteractivity)
   const particlesInit = useCallback(async (engine) => {
     await loadSlim(engine)
   }, [])
@@ -27,7 +27,7 @@ export default function ParticlesBakground({ mode }) {
               mode: "push",
             },
             onHover: {
-              enable: particles,
+              enable: particlesInteractivity,
               mode: "repulse",
             },
             resize: true,

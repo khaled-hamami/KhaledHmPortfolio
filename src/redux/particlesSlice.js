@@ -1,17 +1,17 @@
-import { createSlice } from "@reduxjs/toolkit"
+import { createSlice } from "@reduxjs/toolkit";
 
 const particlesSlice = createSlice({
   name: "particles",
-  initialState: { particles: true },
+  initialState: { particlesVisible: true },
   reducers: {
     setParticlesTrue: (state) => {
-      state.particles = true
+      state.particlesVisible = true;
     },
     setParticlesFalse: (state) => {
-      state.particles = false
+      state.particlesVisible = false;
     },
   },
-})
+});
 
-export default particlesSlice.reducer
-export const { setParticlesTrue, setParticlesFalse } = particlesSlice.actions
+export default particlesSlice.reducer;
+export const { particlesVisible, setParticlesTrue, setParticlesFalse } = particlesSlice.actions;

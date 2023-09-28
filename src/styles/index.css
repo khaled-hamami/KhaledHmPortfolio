@@ -107,3 +107,32 @@ hr.style-seven:before {
   border-radius: 50%;
   animation: glow 2s infinite;
 }
+img {
+  object-position: center;
+  object-fit: cover;
+}
+.blured {
+  background-size: cover;
+  background-position: center;
+}
+
+.glow-purple {
+  width: 100px;
+  height: 100px;
+  background-color: #783cc2;
+  animation: glow 2s infinite;
+  box-shadow: 0 0 10px #783cc2;
+}
+
+/* Keyframes for the animation */
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 10px #783cc2;
+  }
+  50% {
+    box-shadow: 0 0 20px #783cc2;
+  }
+  100% {
+    box-shadow: 0 0 10px #783cc2;
+  }
+} 
