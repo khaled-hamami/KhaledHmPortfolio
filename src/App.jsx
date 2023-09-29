@@ -32,11 +32,10 @@ export default function App() {
       if (localStorage.getItem("theme") == null) localStorage.setItem("theme", "lightMode")
     }
     checkTheme()
-    
+
     // disable the particles if the device is phone to reduce lag
     if (window.innerWidth < 400) {
       dispatch(setParticlesFalse())
-      console.log(window.innerWidth)
     }
   }, [])
 

@@ -72,12 +72,13 @@ export default function ProjectCard({ title, description, image, about, link, so
       <CardMedia
         component="img"
         height="194"
+        width="100%"
         image={image}
         alt="Paella dish"
         loading="lazy"
         sx={{
           borderRadius: "5px",
-          boxShadow: "4px 4px 6px rgba(0, 0, 0, 0.2)", // Adjust values for shadow
+          boxShadow: "4px 4px 6px rgba(0, 0, 0, 0.2)",
         }}
       />
       <CardContent></CardContent>

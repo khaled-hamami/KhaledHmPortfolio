@@ -10,7 +10,7 @@ export default function ParticlesBakground({ mode }) {
   }, [])
 
   return (
-    <Particles
+    <Particles 
       id="tsparticles"
       init={particlesInit}
       options={{
@@ -18,6 +18,7 @@ export default function ParticlesBakground({ mode }) {
           color: {
             value: "trasparent",
           },
+          
         },
         fpsLimit: 240,
         interactivity: {
@@ -28,7 +29,7 @@ export default function ParticlesBakground({ mode }) {
             },
             onHover: {
               enable: particlesInteractivity,
-              mode: "repulse",
+              mode: "attract",
             },
             resize: true,
           },

@@ -1,13 +1,11 @@
 import { Box } from "@mui/material"
-import { useSelector } from "react-redux"
 import RingLoader from "react-spinners/RingLoader"
 
 export default function Loader({ loading }) {
-  const { darkMode } = useSelector((state) => state.darkMode)
   return (
     <Box
       sx={{
-        backgroundColor: darkMode ? "#0a0a0a" : "#fff",
+        backgroundColor: "transparent",
         width: "100%",
         height: "100vh",
         display: "flex",

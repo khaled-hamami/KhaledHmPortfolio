@@ -23,7 +23,7 @@ export default function CertificateCard({
   return (
     <Card
       sx={{
-        width: { xs: "300px", sm: "500px", md: "900px" },
+        width: { xs: "300px", sm: "500px" },
         height: "500px",
         border: "1px solid #560085",
         borderRadius: "10px",

@@ -1,7 +1,8 @@
 import { Box, Container, Typography } from "@mui/material"
 import CertificateCard from "../components/CertificateCard"
 import googleCertif from "../assets/certif1.png"
-import canvaCertif from "../assets/certif2.png"
+import reactCertif from "../assets/certif2.png"
+import canvaCertif from "../assets/certif3.png"
 
 const CertificateData = [
   {
@@ -14,12 +15,20 @@ const CertificateData = [
       "https://www.linkedin.com/posts/khaledhm_google-technical-support-fundamentals-activity-7105627857451716608-Egyn?utm_source=share&utm_medium=member_desktop",
   },
   {
+    title: "IBM",
+    image: reactCertif,
+    date: "9/23/2023",
+    about: "Developing Front-end Apps With React",
+    link: "https://www.coursera.org/account/accomplishments/certificate/Z4EL85QRYYCH",
+    linkedIn: "#",
+  },
+  {
     title: "CANVA",
     image: canvaCertif,
     date: "9/22/2023",
     about: "Canva Desings Certificate",
-    link: "",
-    linkedIn: "",
+    link: "#",
+    linkedIn: "#",
   },
 ]
 

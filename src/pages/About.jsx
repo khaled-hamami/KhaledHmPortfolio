@@ -1,5 +1,5 @@
 import React from "react"
-import { Container, Typography } from "@mui/material"
+import { Box, Container, IconButton, Typography } from "@mui/material"
 
 // Importing logo images
 import react from "../assets/Logos/react.png"
@@ -25,29 +25,31 @@ import typescriptLogo from "../assets/Logos/typescript.png"
 import vscodeLogo from "../assets/Logos/vscode.png"
 import AboutSkillCard from "../components/AboutSkillCard"
 import Tilt from "react-parallax-tilt"
+import { Email, Facebook, GitHub, LinkedIn } from "@mui/icons-material"
 
 const Skills = {
   react: react,
-  mongodb: mongodbLogo,
-  node: nodeLogo,
-  express: expressLogo,
-  mui: muiLogo,
-  html: htmlLogo,
-  css: cssLogo,
-  canva: canvaLogo,
-  c: cLogo,
-  python: pythonLogo,
-  java: javaLogo,
-  js: jsLogo,
-  oracle: oracleLogo,
-  mongoose: mongooseLogo,
-  redux: reduxLogo,
-  typescript: typescriptLogo,
-  git: gitLogo,
-  docker: dockerLogo,
-  jira: jiraLogo,
-  vscode: vscodeLogo,
-  linux: linuxLogo,
+  Mongodb: mongodbLogo,
+  Node: nodeLogo,
+  Express: expressLogo,
+  Mui: muiLogo,
+  Javascript: jsLogo,
+  Typescript: typescriptLogo,
+  Java: javaLogo,
+  Python: pythonLogo,
+  C: cLogo,
+  Css: cssLogo,
+  Canva: canvaLogo,
+  Html: htmlLogo,
+  Oracle: oracleLogo,
+  Mongoose: mongooseLogo,
+  Redux: reduxLogo,
+  // Github: githubLogo,
+  Git: gitLogo,
+  Docker: dockerLogo,
+  Jira: jiraLogo,
+  Vsode: vscodeLogo,
+  Linux: linuxLogo,
 }
 
 export default function About() {
@@ -65,7 +67,7 @@ export default function About() {
         style={{
           width: "95%",
           objectPosition: "center",
-          margin: "0 auto",
+          margin: "0 auto 100px  auto ",
           borderColor: " #783cc2",
           borderRadius: "20px",
         }}
@@ -80,15 +82,68 @@ export default function About() {
           sx={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}
         >
           {Object.keys(Skills).map((skill) => (
-            <Tilt perspective={1000} glareEnable={false} glareColor="transparent" key={skill}>
+            <Tilt
+              perspective={1000}
+              glareEnable={true}
+              tiltReverse={true}
+              glareColor="white"
+              key={skill}
+              style={{ borderRadius: "20px" }}
+            >
               <AboutSkillCard img={Skills[skill]} title={skill} />
             </Tilt>
           ))}
         </Container>
       </fieldset>
+      {/*
+      <hr
+        className="style-seven"
+        style={{
+          position: "absolute",
+          left: "0",
+          right: "0",
+          width: "100%",
+        }}
+      />
+      <br />
+      <hr
+        className="style-seven"
+        style={{
+          position: "absolute",
+          left: "0",
+          right: "0",
+          width: "100%",
+        }}
+      />
       <Typography m="120px 20px" variant="h4" gutterBottom>
         Contact
       </Typography>
+      <Container
+        maxWidth="xxl"
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          flexDirection: "column",
+        }}
+      >
+        <Typography variant="h6">You can contact me at</Typography>
+        <Box>
+          <IconButton>
+            <LinkedIn />
+          </IconButton>
+          <IconButton>
+            <Email />
+          </IconButton>
+          <IconButton>
+            <Facebook />
+          </IconButton>
+          <IconButton>
+            <GitHub />
+          </IconButton>
+        </Box>
+      </Container>
+        */}
     </>
   )
 }

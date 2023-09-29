@@ -2,6 +2,7 @@ import { Box, Button, Container, Typography } from "@mui/material"
 import { AutoTyper } from "../utils/AutoTyper"
 import cv from "../assets/cv.pdf"
 import pc from "../assets/image.png"
+import pc2 from "../assets/image2.png"
 
 const handleDownloadClick = () => {
   const link = document.createElement("a")
@@ -123,14 +124,21 @@ export default function Home() {
         </Box>
         <Box
           sx={{
-            width: { xs: "300px", sm: "500px", md: "650px", lg: "900px" },
-            height: { xs: "200px", sm: "300px", md: "400px", lg: "600px" },
+            width: { xs: "300px", sm: "650px", md: "750px", lg: "1000px" },
+            height: { xs: "250px", sm: "300px", md: "500px", lg: "650px" },
           }}
         >
           <img width="100%" height="100%" src={pc} alt="pc image" />
         </Box>
       </Container>
-      <Container maxWidth="xl" sx={{ width: "100%", mt: { xs: "130px", sm: "0" } }}>
+      <Container
+        maxWidth="xl"
+        sx={{
+          width: "100%",
+          mb: { xs: "100px", sm: "150px", md: "200px", lg: "250px" },
+          mt: { xs: "200px", sm: "70px" },
+        }}
+      >
         <hr
           className="style-seven"
           style={{
@@ -150,27 +158,48 @@ export default function Home() {
             width: "100%",
           }}
         />
-        <Typography
-          variant="h4"
+        <Box
+          width="100%"
           sx={{
-            color: "contrast.main",
-            mt: "3.5rem",
-            fontFamily: "inherit",
-            fontSize: { xs: "1.5rem", md: "2rem", lg: "2.5rem" },
+            display: "flex",
+            flexDirection: { xs: "column", sm: "row-reverse" },
+            alignItems: "center",
+            justifyContent: "space-between",
+            mt: "160px",
           }}
         >
-          Get to know<span style={{ color: "#be33f5" }}> me</span>
-        </Typography>
-        <Typography
-          variant="h6"
-          mt="2rem"
-          sx={{ color: "contrast.main", textShadow: "none", fontFamily: "inherit" }}
-        >
-          Hello! I'm Khaled Hammami <br /> a 2nd year IT student at ISET Nabeul. Amazed by new
-          technologies, I'm on a path to become a professional developer. Also my fascination with
-          computer science led me to become part of an amazing communities. <br />
-          As I continue to learn and grow, I will further contribute to the world of technology
-        </Typography>
+          <Box mb="100px">
+            <Typography
+              variant="h4"
+              sx={{
+                color: "contrast.main",
+                mt: "3.5rem",
+                fontFamily: "inherit",
+                fontSize: { xs: "1.5rem", md: "2rem", lg: "2.5rem" },
+              }}
+            >
+              Get to know<span style={{ color: "#be33f5" }}> me</span>
+            </Typography>
+            <Typography
+              variant="h6"
+              mt="2rem"
+              sx={{ color: "contrast.main", textShadow: "none", fontFamily: "inherit" }}
+            >
+              Hello! I'm Khaled Hammami <br /> a 2nd year IT student at ISET Nabeul. Amazed by new
+              technologies, I'm on a path to become a professional developer. Also my fascination
+              with computer science led me to become part of an amazing communities. <br />
+              As I continue to learn and grow, I will further contribute to the world of technology
+            </Typography>
+          </Box>
+          <Box
+            sx={{
+              width: { xs: "280px", sm: "1200px", md: "1200px", lg: "1500px" },
+              height: { xs: "235px", sm: "250px", md: "300px", lg: "450px" },
+            }}
+          >
+            <img width="100%" height="100%" src={pc2} alt="pc image" />
+          </Box>
+        </Box>
       </Container>
     </Box>
   )
