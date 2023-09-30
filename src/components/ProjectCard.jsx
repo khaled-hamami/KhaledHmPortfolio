@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { styled } from "@mui/material/styles"
 import Card from "@mui/material/Card"
 import CardHeader from "@mui/material/CardHeader"
@@ -12,7 +12,7 @@ import ShareIcon from "@mui/icons-material/Share"
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore"
 import Logo from "../assets/favicon.webp"
 import LaunchIcon from "@mui/icons-material/Launch"
-import { Alert, Button, Typography } from "@mui/material"
+import { Alert, Box, Button, Typography } from "@mui/material"
 import GitHub from "@mui/icons-material/GitHub"
 import copyToClipboard from "../utils/CopyToClipboard"
 import CloseIcon from "@mui/icons-material/Close"
@@ -29,7 +29,32 @@ const ExpandMore = styled((props) => {
   }),
 }))
 
-export default function ProjectCard({ title, description, image, about, link, sourceCode }) {
+export default function ProjectCard({
+  title,
+  description,
+  image,
+  about,
+  link,
+  sourceCode,
+  smallImage,
+}) {
+  //lazy load image with blured background
+
+  const [highResImage, setHighResImage] = useState(null)
+  const [projectImageLoaded, setProjectImageLoaded] = useState(false)
+
+  useEffect(() => {
+    // Load the high-resolution image asynchronously
+    const img = new Image()
+    img.src = image
+    img.onload = () => {
+      setHighResImage(img.src)
+      setProjectImageLoaded(true)
+    }
+  }, [image])
+
+  //handle expand
+
   const [expanded, setExpanded] = useState(false)
   const handleExpandClick = () => {
     setExpanded(!expanded)
@@ -39,6 +64,7 @@ export default function ProjectCard({ title, description, image, about, link, so
 
   return (
     <Card
+      className={projectImageLoaded ? "projectImageLoaded projectCard" : "projectCard"}
       sx={{
         width: { xs: "90%", sm: "550px", md: "400px", lg: "560px" },
         border: "1px solid #560085",
@@ -73,15 +99,21 @@ export default function ProjectCard({ title, description, image, about, link, so
         component="img"
         height="194"
         width="100%"
-        image={image}
-        alt="Paella dish"
+        image={highResImage || smallImage}
+        alt="Project Image"
         loading="lazy"
         sx={{
           borderRadius: "5px",
           boxShadow: "4px 4px 6px rgba(0, 0, 0, 0.2)",
+          background: highResImage || smallImage,
+        }}
+        style={{
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          filter: highResImage != null ? "blur(0px)" : "blur(5px)",
         }}
       />
-      <CardContent></CardContent>
+      <br />
       <CardActions disableSpacing>
         <Button
           variant="contained"

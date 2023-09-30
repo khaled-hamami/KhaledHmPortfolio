@@ -52,6 +52,7 @@ html body {
   border-radius: 12px;
 }
 
+/******************************************    BODY    ******************************************/
 .background {
   background-size: cover;
   background-repeat: no-repeat;
@@ -63,12 +64,17 @@ html body {
   display: none;
 }
 
+/******************************************    BUTTONS    ******************************************/
+
 .home-button {
   background: linear-gradient(to left, #a200ff, #5d2bff, #3498db) !important;
 }
 .home-button:hover {
   background: linear-gradient(to left, #8300d0, #4b14ff, #1b6fa8) !important;
 }
+
+/******************************************    HR SEPERATOR    ******************************************/
+
 hr {
   border-color: rgb(140, 0, 255);
   overflow: visible;
@@ -88,51 +94,51 @@ hr.style-seven:before {
   border-radius: 20px;
 }
 
-@keyframes glow {
-  0% {
-    box-shadow: 0 0 10px rgb(134, 5, 209), 0 0 20px blue;
-  }
-  50% {
-    box-shadow: 0 0 20px rgb(134, 5, 209), 0 0 40px blue;
-  }
-  100% {
-    box-shadow: 0 0 10px rgb(134, 5, 209), 0 0 20px blue;
-  }
-}
+/******************************************    CARDS    ******************************************/
 
 .glow-effect {
   width: 200px;
   height: 200px;
   background-color: rgb(134, 5, 209);
   border-radius: 50%;
-  animation: glow 2s infinite;
 }
+
+.projectCard {
+  content: "";
+  inset: 0;
+  position: relative;
+  animation: pulse 2s infinite;
+}
+.certfifcateCard {
+  content: "";
+  inset: 0;
+  position: relative;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    background-color: rgba(255, 255, 255, 0);
+  }
+  50% {
+    background-color: rgba(255, 255, 255, 0.4);
+  }
+  100% {
+    background-color: rgba(255, 255, 255, 0);
+  }
+}
+
+.certfifcateCard.certificateImageLoaded {
+  content: none;
+  animation: none;
+}
+
+.projectCard.projectImageLoaded {
+  content: none;
+  animation: none;
+}
+
 img {
   object-position: center;
   object-fit: cover;
 }
-.blured {
-  background-size: cover;
-  background-position: center;
-}
-
-.glow-purple {
-  width: 100px;
-  height: 100px;
-  background-color: #783cc2;
-  animation: glow 2s infinite;
-  box-shadow: 0 0 10px #783cc2;
-}
-
-/* Keyframes for the animation */
-@keyframes glow {
-  0% {
-    box-shadow: 0 0 10px #783cc2;
-  }
-  50% {
-    box-shadow: 0 0 20px #783cc2;
-  }
-  100% {
-    box-shadow: 0 0 10px #783cc2;
-  }
-} 

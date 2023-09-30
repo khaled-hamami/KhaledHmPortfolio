@@ -1,19 +1,32 @@
 import { Box, Button, Container, Typography } from "@mui/material"
 import { AutoTyper } from "../utils/AutoTyper"
-import cv from "../assets/cv.pdf"
-import pc from "../assets/image.png"
-import pc2 from "../assets/image2.png"
-
-const handleDownloadClick = () => {
-  const link = document.createElement("a")
-  link.href = cv
-  link.target = "_blank"
-  link.download = "Khaled_Hammami_cv"
-
-  link.click()
-}
+import homeImage1 from "../assets/Home-image-1.png"
+import homeImage2 from "../assets/Home-image-2.png"
+import smallHomeImage1 from "../assets/Home-image-small-1.png"
+import smallHomeImage2 from "../assets/Home-image-small-2.png"
+import handleDownloadClick from "../utils/DownloadResume"
+import { useEffect, useState } from "react"
 
 export default function Home() {
+  //lazy load image with blured background
+
+  const [highResHomeImage1, setHighResHomeImage1] = useState(null)
+  const [highResHomeImage2, setHighResHomeImage2] = useState(null)
+
+  useEffect(() => {
+    // Load the high-resolution image asynchronously
+    const homeImg1 = new Image()
+    const homeImg2 = new Image()
+    homeImg1.src = homeImage1
+    homeImg2.src = homeImage2
+    homeImg1.onload = () => {
+      setHighResHomeImage1(homeImg1.src)
+    }
+    homeImg2.onload = () => {
+      setHighResHomeImage2(homeImg2.src)
+    }
+  }, [homeImage1, homeImage2])
+
   return (
     <Box
       className="homepage"
@@ -128,7 +141,14 @@ export default function Home() {
             height: { xs: "250px", sm: "300px", md: "500px", lg: "650px" },
           }}
         >
-          <img width="100%" height="100%" src={pc} alt="pc image" />
+          <img
+            width="100%"
+            height="100%"
+            src={highResHomeImage1 || smallHomeImage1}
+            alt="pc image"
+            loading="lazy"
+            style={{ filter: highResHomeImage1 != null ? "blur(0px)" : "blur(5px)" }}
+          />
         </Box>
       </Container>
       <Container
@@ -197,7 +217,14 @@ export default function Home() {
               height: { xs: "235px", sm: "250px", md: "300px", lg: "450px" },
             }}
           >
-            <img width="100%" height="100%" src={pc2} alt="pc image" />
+            <img
+              width="100%"
+              height="100%"
+              src={highResHomeImage2 || smallHomeImage2}
+              alt="pc image"
+              loading="lazy"
+              style={{ filter: highResHomeImage2 != null ? "blur(0px)" : "blur(5px)" }}
+            />
           </Box>
         </Box>
       </Container>

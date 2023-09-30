@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import Card from "@mui/material/Card"
 import CardHeader from "@mui/material/CardHeader"
 import CardMedia from "@mui/material/CardMedia"
@@ -19,9 +19,27 @@ export default function CertificateCard({
   link,
   linkedIn,
   backgroundImage,
+  smallImage,
 }) {
+  //lazy load images with blur placeholder background
+  const [highResImage, setHighResImage] = useState(null)
+  const [certificateImageLoaded, setCertificateImageLoaded] = useState(false)
+
+  useEffect(() => {
+    // Load the high-resolution image asynchronously
+    const img = new Image()
+    img.src = image
+    img.onload = () => {
+      setHighResImage(img.src)
+      setCertificateImageLoaded(true)
+    }
+  }, [image])
+
   return (
     <Card
+      className={` ${
+        certificateImageLoaded ? "certificateImageLoaded certfifcateCard" : "certfifcateCard"
+      }`}
       sx={{
         width: { xs: "300px", sm: "500px" },
         height: "500px",
@@ -46,12 +64,18 @@ export default function CertificateCard({
         <CardMedia
           height={307}
           component="img"
-          image={image}
-          alt="Paella dish"
+          image={highResImage || smallImage}
+          alt="Certificate card"
           loading="lazy"
           sx={{
             borderRadius: "5px",
             boxShadow: "4px 4px 6px rgba(0, 0, 0, 0.2)", // Adjust values for shadow
+            background: highResImage || smallImage,
+          }}
+          style={{
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            filter: highResImage != null ? "blur(0px)" : "blur(5px)",
           }}
         />
       </div>

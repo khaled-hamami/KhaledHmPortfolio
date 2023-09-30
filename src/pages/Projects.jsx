@@ -6,6 +6,11 @@ import Back2Gaming from "../assets/Back2Gaming.png"
 import AbsoluteZero from "../assets/AbsoluteZero.png"
 import Python from "../assets/Python.png"
 import Portfolio from "../assets/Portfolio.png"
+import tuCasaSmall from "../assets/tuCasa-small.png"
+import Back2GamingSmall from "../assets/Back2Gaming-small.png"
+import AbsoluteZeroSmall from "../assets/AbsoluteZero-small.png"
+import PythonSmall from "../assets/Python-small.png"
+import PortfolioSmall from "../assets/Portfolio-small.png"
 
 const projectData = [
   {
@@ -13,6 +18,7 @@ const projectData = [
     date: "Date 1",
     about: "Rental Webapp",
     image: tuCasa,
+    smallImage: tuCasaSmall,
     link: "https://tucasatn.netlify.app/",
     sourceCode: "https://github.com/khaled-hamami/tuCasa",
     description: [
@@ -28,6 +34,7 @@ const projectData = [
     title: "BACK TO GAMING",
     about: "Gaming News ",
     image: Back2Gaming,
+    smallImage: Back2GamingSmall,
     link: "https://Back2Gaming.netlify.app/",
     sourceCode: "https://github.com/khaled-hamami/Back2Gaming",
     description: ["REACT JS", "EPIC GAMES API", "MATERIAL-UI", "REACT-PARALLEX"],
@@ -36,6 +43,7 @@ const projectData = [
     title: "ABSOLUTE ZERO",
     about: "Heat Unit Converter",
     image: AbsoluteZero,
+    smallImage: AbsoluteZeroSmall,
     link: "https://Back2Gaming.netlify.app/",
     sourceCode: "https://github.com/khaled-hamami/AbsoluteZero",
     description: ["HTML5", "CSS3", "JAVASCRIPT"],
@@ -44,6 +52,7 @@ const projectData = [
     title: "VIDEO GAMES PYHTON ANALYSIS",
     about: "vg sales ",
     image: Python,
+    smallImage: PythonSmall,
     link: "https://drive.google.com/drive/folders/14CdupGO8Sqo5IeyCQcrxppFaxR7ViQsH?usp=sharing",
     sourceCode: "https://github.com/khaled-hamami/Py-VgSales-Analysis",
     description: ["NUMPY", "SEABORN", "MATPLOTLIB", "PANDAS"],
@@ -52,6 +61,7 @@ const projectData = [
     title: "PORTFOLIO",
     about: "My Personal Portfolio",
     image: Portfolio,
+    smallImage: PortfolioSmall,
     link: "https://KhaledHmtn",
     sourceCode: "https://github.com/khaled-hamami/KhaledHmPortfolio",
     description: ["REACT", "REDUX | TOOLKIT", "JOTAI", "MATERIAL-UI", "TS-PARTICLES"],
@@ -96,6 +106,7 @@ export default function ProjectsPage() {
                 about={project.about}
                 link={project.link}
                 sourceCode={project.sourceCode}
+                smallImage={project.smallImage}
               />
             </div>
           ))}

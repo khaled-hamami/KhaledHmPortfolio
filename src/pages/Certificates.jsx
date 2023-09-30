@@ -3,11 +3,15 @@ import CertificateCard from "../components/CertificateCard"
 import googleCertif from "../assets/certif1.png"
 import reactCertif from "../assets/certif2.png"
 import canvaCertif from "../assets/certif3.png"
+import googleCertifSmall from "../assets/certif1-small.png"
+import reactCertifSmall from "../assets/certif2-small.png"
+import canvaCertifSmall from "../assets/certif3-small.png"
 
 const CertificateData = [
   {
     title: "GOOGLE",
     image: googleCertif,
+    smallImage: googleCertifSmall,
     date: "9/07/2023",
     about: "Technical Support Fundamentals",
     link: "https://www.coursera.org/account/accomplishments/certificate/QBTV8WLKBQ76",
@@ -17,6 +21,7 @@ const CertificateData = [
   {
     title: "IBM",
     image: reactCertif,
+    smallImage: reactCertifSmall,
     date: "9/23/2023",
     about: "Developing Front-end Apps With React",
     link: "https://www.coursera.org/account/accomplishments/certificate/Z4EL85QRYYCH",
@@ -25,6 +30,7 @@ const CertificateData = [
   {
     title: "CANVA",
     image: canvaCertif,
+    smallImage: canvaCertifSmall,
     date: "9/22/2023",
     about: "Canva Desings Certificate",
     link: "#",
@@ -70,6 +76,7 @@ export default function Certificates() {
                 about={certificate.about}
                 link={certificate.link}
                 linkedIn={certificate.linkedIn}
+                smallImage={certificate.smallImage}
               />
             </div>
           ))}

@@ -1,7 +1,21 @@
 import { Button, Container, Typography } from "@mui/material"
+import handleDownloadClick from "../utils/DownloadResume"
 import cv from "../assets/cv.png"
+import smallCv from "../assets/cv-small.png"
+import { useEffect, useState } from "react"
 
 export default function Resume() {
+  // Load the high-resolution image asynchronously
+  const [highResImage, setHighResImage] = useState(null)
+  useEffect(() => {
+    // Load the high-resolution image asynchronously
+    const img = new Image()
+    img.src = cv
+    img.onload = () => {
+      setHighResImage(img.src)
+    }
+  }, [cv])
+
   return (
     <>
       <br />
@@ -29,10 +43,20 @@ export default function Resume() {
             "&:hover": { color: "contrast.reverse", scale: "1.02" },
             mb: "100px",
           }}
+          onClick={() => handleDownloadClick()}
         >
           Download my Resume
         </Button>
-        <img src={cv} width="80%" loading="lazy" />
+        <img
+          src={highResImage || smallCv}
+          width="80%"
+          loading="lazy"
+          style={{
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            filter: highResImage != null ? "blur(0px)" : "blur(5px)",
+          }}
+        />
         <Button
           className="home-button"
           variant="contained"
@@ -42,6 +66,7 @@ export default function Resume() {
             "&:hover": { color: "contrast.reverse", scale: "1.02" },
             my: "100px",
           }}
+          onClick={() => handleDownloadClick()}
         >
           Download my Resume
         </Button>
