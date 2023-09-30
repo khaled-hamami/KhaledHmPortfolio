@@ -16,7 +16,7 @@ export default function Loader({ loading }) {
       <RingLoader
         color={"#be33f5"}
         loading={loading}
-        size={100}
+        size={40}
         aria-label="Loading Spinner"
         data-testid="loader"
       />

@@ -17,6 +17,7 @@ import GitHub from "@mui/icons-material/GitHub"
 import copyToClipboard from "../utils/CopyToClipboard"
 import CloseIcon from "@mui/icons-material/Close"
 import "../styles/index.css"
+import { useSelector } from "react-redux"
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props
@@ -38,6 +39,8 @@ export default function ProjectCard({
   sourceCode,
   smallImage,
 }) {
+  const { darkMode } = useSelector((state) => state.darkMode)
+
   //lazy load image with blured background
 
   const [highResImage, setHighResImage] = useState(null)
@@ -64,7 +67,10 @@ export default function ProjectCard({
 
   return (
     <Card
-      className={projectImageLoaded ? "projectImageLoaded projectCard" : "projectCard"}
+      className={`
+      ${darkMode ? "projectCardDarkModeAnimation" : "projectCardLightModeAnimation"}
+      ${projectImageLoaded ? "projectCard projectImageLoaded" : "projectCard"}
+        `}
       sx={{
         width: { xs: "90%", sm: "550px", md: "400px", lg: "560px" },
         border: "1px solid #560085",

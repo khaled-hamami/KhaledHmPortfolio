@@ -84,11 +84,11 @@ export default function About() {
           {Object.keys(Skills).map((skill) => (
             <Tilt
               perspective={1000}
-              glareEnable={true}
+              glareEnable={false}
               tiltReverse={true}
-              glareColor="white"
-              key={skill}
+              glareColor="transparent"
               style={{ borderRadius: "20px" }}
+              key={skill}
             >
               <AboutSkillCard img={Skills[skill]} title={skill} />
             </Tilt>

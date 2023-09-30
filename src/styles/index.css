@@ -4,7 +4,6 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -37,22 +36,20 @@ html body {
 ::-webkit-scrollbar {
   width: 7px;
 }
-
 ::-webkit-scrollbar-track {
   background: #2d1950;
 }
-
 ::-webkit-scrollbar-thumb {
   background: rgba(178, 121, 216, 0.959);
   border-radius: 12px;
 }
-
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(222, 130, 235, 0.911);
   border-radius: 12px;
 }
 
 /******************************************    BODY    ******************************************/
+
 .background {
   background-size: cover;
   background-repeat: no-repeat;
@@ -107,16 +104,27 @@ hr.style-seven:before {
   content: "";
   inset: 0;
   position: relative;
-  animation: pulse 2s infinite;
 }
-.certfifcateCard {
+.certificateCard {
   content: "";
   inset: 0;
   position: relative;
-  animation: pulse 2s infinite;
 }
 
-@keyframes pulse {
+.projectCardDarkModeAnimation {
+  animation: pulseDarkMode 2s infinite ease;
+}
+.projectCardLightModeAnimation {
+  animation: pulseLightMode 2s infinite ease;
+}
+.certificateCardDarkModeAnimation {
+  animation: pulseDarkMode 2s infinite ease;
+}
+.certificateCardLightModeAnimation {
+  animation: pulseLightMode 2s infinite ease;
+}
+
+@keyframes pulseDarkMode {
   0% {
     background-color: rgba(255, 255, 255, 0);
   }
@@ -127,13 +135,24 @@ hr.style-seven:before {
     background-color: rgba(255, 255, 255, 0);
   }
 }
+@keyframes pulseLightMode {
+  0% {
+    background-color: rgba(255, 255, 255, 0);
+  }
+  50% {
+    background-color: rgba(217, 0, 255, 0.4);
+  }
+  100% {
+    background-color: rgba(255, 255, 255, 0);
+  }
+}
 
-.certfifcateCard.certificateImageLoaded {
+.projectCard.projectImageLoaded {
   content: none;
   animation: none;
 }
 
-.projectCard.projectImageLoaded {
+.certificateCard.certificateImageLoaded {
   content: none;
   animation: none;
 }

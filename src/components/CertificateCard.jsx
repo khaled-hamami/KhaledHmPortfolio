@@ -9,6 +9,7 @@ import Logo from "../assets/favicon.webp"
 import { Button, Typography } from "@mui/material"
 import AllInclusiveIcon from "@mui/icons-material/AllInclusive"
 import LinkedInIcon from "@mui/icons-material/LinkedIn"
+import { useSelector } from "react-redux"
 import "../styles/index.css"
 
 export default function CertificateCard({
@@ -21,7 +22,9 @@ export default function CertificateCard({
   backgroundImage,
   smallImage,
 }) {
+  const { darkMode } = useSelector((state) => state.darkMode)
   //lazy load images with blur placeholder background
+
   const [highResImage, setHighResImage] = useState(null)
   const [certificateImageLoaded, setCertificateImageLoaded] = useState(false)
 
@@ -37,9 +40,10 @@ export default function CertificateCard({
 
   return (
     <Card
-      className={` ${
-        certificateImageLoaded ? "certificateImageLoaded certfifcateCard" : "certfifcateCard"
-      }`}
+      className={`
+      ${darkMode ? "certificateCardDarkModeAnimation" : "certificateCardLightModeAnimation"}
+      ${certificateImageLoaded ? "certificateCard certificateImageLoaded" : "certificateCard"}
+        `}
       sx={{
         width: { xs: "300px", sm: "500px" },
         height: "500px",
