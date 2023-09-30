@@ -1,7 +1,7 @@
 import { Button, Container, Typography } from "@mui/material"
 import handleDownloadClick from "../utils/DownloadResume"
-import cv from "../assets/cv.png"
-import smallCv from "../assets/cv-small.png"
+import cv from "../assets/images/cv.png"
+import smallCv from "../assets/images/cv-small.png"
 import { useEffect, useState } from "react"
 
 export default function Resume() {
