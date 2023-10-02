@@ -45,7 +45,7 @@ export default function CertificateCard({
       ${certificateImageLoaded ? "certificateCard certificateImageLoaded" : "certificateCard"}
         `}
       sx={{
-        width: { xs: "300px", sm: "500px" },
+        width: { xs: "350px", sm: "500px" },
         height: "500px",
         border: "1px solid #560085",
         borderRadius: "10px",

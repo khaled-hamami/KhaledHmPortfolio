@@ -12,12 +12,12 @@ import ShareIcon from "@mui/icons-material/Share"
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore"
 import Logo from "../assets/favicon.webp"
 import LaunchIcon from "@mui/icons-material/Launch"
-import { Alert, Box, Button, Typography } from "@mui/material"
+import { Alert, Button, Typography } from "@mui/material"
 import GitHub from "@mui/icons-material/GitHub"
 import copyToClipboard from "../utils/CopyToClipboard"
 import CloseIcon from "@mui/icons-material/Close"
-import "../styles/index.css"
 import { useSelector } from "react-redux"
+import "../styles/index.css"
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props
