@@ -1,7 +1,6 @@
 /*****************************************    GENERAL    *********************************************/
 
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
   font-synthesis: none;
@@ -11,18 +10,13 @@
   -webkit-text-size-adjust: 100%;
 }
 
-@font-face {
-  font-family: post-font;
-  src: url(/fonts/Posterama\ 2001\ Regular.otf);
-}
-
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   scroll-behavior: smooth;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-  font-family: "Helvetica", "post-font", "Courier New", Courier, monospace;
+  font-family: "poppins", "Helvetica", "Courier New", Courier, monospace !important;
 }
 
 html body {

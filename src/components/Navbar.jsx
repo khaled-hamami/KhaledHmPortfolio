@@ -95,7 +95,7 @@ export default function Navbar() {
               }}
               to="/"
             >
-              Home
+              HOME
             </CustomNavLink>
             <CustomNavLink
               style={({ isActive }) => {
@@ -103,7 +103,7 @@ export default function Navbar() {
               }}
               to="/projects"
             >
-              Projects
+              PROJECTS
             </CustomNavLink>
             <CustomNavLink
               style={({ isActive }) => {
@@ -111,7 +111,7 @@ export default function Navbar() {
               }}
               to="/certificates"
             >
-              Certificates
+              CERTIFICATES
             </CustomNavLink>
             <CustomNavLink
               style={({ isActive }) => {
@@ -119,7 +119,7 @@ export default function Navbar() {
               }}
               to="/resume"
             >
-              Resume
+              RESUME
             </CustomNavLink>
             <CustomNavLink
               style={({ isActive }) => {
@@ -127,7 +127,7 @@ export default function Navbar() {
               }}
               to="/about"
             >
-              About
+              ABOUT
             </CustomNavLink>
           </Box>
           <IconButton onClick={() => dispatch(setSettingsVisible())}>
@@ -163,7 +163,6 @@ const CustomNavLink = styled(NavLink)(({ theme }) => ({
   color: theme.palette.contrast.main,
   fontSize: "1.1rem",
   fontWeight: "bold",
-  fontFamily: "post-font, great-font, sans-serif",
   cursor: "pointer",
   position: "relative",
   transition: "color 0.3s ease",

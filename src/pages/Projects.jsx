@@ -19,7 +19,7 @@ const projectData = [
     about: "Rental Webapp",
     image: tuCasa,
     smallImage: tuCasaSmall,
-    link: "https://tucasatn.netlify.app/",
+    link: "https://tucasatn.vercel.app",
     sourceCode: "https://github.com/khaled-hamami/tuCasa",
     description: [
       "REACT JS",
@@ -62,7 +62,7 @@ const projectData = [
     about: "My Personal Portfolio",
     image: Portfolio,
     smallImage: PortfolioSmall,
-    link: "https://KhaledHmtn",
+    link: "https://KhaledHm.tn",
     sourceCode: "https://github.com/khaled-hamami/KhaledHmPortfolio",
     description: ["REACT", "REDUX | TOOLKIT", "JOTAI", "MATERIAL-UI", "TS-PARTICLES"],
   },

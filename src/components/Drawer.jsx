@@ -164,7 +164,6 @@ const CustomNavLink = styled(NavLink)(({ theme }) => ({
   color: theme.palette.contrast.main,
   fontSize: "1.1rem",
   fontWeight: "bold",
-  fontFamily: "post-font, great-font, sans-serif",
   cursor: "pointer",
   position: "relative",
   transition: "color 0.3s ease",

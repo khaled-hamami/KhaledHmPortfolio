@@ -48,7 +48,7 @@ const Skills = {
   Git: gitLogo,
   Docker: dockerLogo,
   Jira: jiraLogo,
-  Vsode: vscodeLogo,
+  VsCode: vscodeLogo,
   Linux: linuxLogo,
 }
 

@@ -50,7 +50,6 @@ export default function Home() {
         <Box width="80%">
           <Typography
             sx={{
-              fontFamily: "post-font",
               fontSize: { xs: "2rem", md: "3rem", lg: "3.5rem" },
               color: "contrast.main",
             }}
@@ -59,7 +58,6 @@ export default function Home() {
           </Typography>
           <Typography
             sx={{
-              fontFamily: "post-font",
               fontSize: { xs: "2rem", md: "3rem", lg: "3.5rem" },
               color: "contrast.main",
               display: "inline-block",
@@ -69,7 +67,6 @@ export default function Home() {
           </Typography>
           <Typography
             sx={{
-              fontFamily: "post-font",
               fontSize: { xs: "2rem", md: "3rem", lg: "3.5rem" },
               color: "primary.main",
               display: "inline-block",
@@ -83,7 +80,6 @@ export default function Home() {
           <Typography
             component="div"
             sx={{
-              fontFamily: "post-font",
               fontSize: { xs: "2rem", md: "3rem", lg: "4rem" },
               color: "primary.main",
             }}
@@ -95,8 +91,8 @@ export default function Home() {
             sx={{
               mt: "5rem",
               color: "contrast.main",
-              fontFamily: "Helvetica",
               fontSize: "1.3rem",
+              textShadow: "none",
               fontWeight: "600",
             }}
           >
@@ -142,12 +138,16 @@ export default function Home() {
           }}
         >
           <img
+            className="home-image"
             width="100%"
             height="100%"
             src={highResHomeImage1 || smallHomeImage1}
             alt="pc image"
             loading="lazy"
-            style={{ filter: highResHomeImage1 != null ? "blur(0px)" : "blur(5px)" }}
+            style={{
+              filter: highResHomeImage1 != null ? "blur(0px)" : "blur(5px) ",
+              transition: "filter 0.8s ease, opaccity 0.8s ease",
+            }}
           />
         </Box>
       </Container>
@@ -194,7 +194,6 @@ export default function Home() {
               sx={{
                 color: "contrast.main",
                 mt: "3.5rem",
-                fontFamily: "inherit",
                 fontSize: { xs: "1.5rem", md: "2rem", lg: "2.5rem" },
               }}
             >
@@ -202,8 +201,13 @@ export default function Home() {
             </Typography>
             <Typography
               variant="h6"
-              mt="2rem"
-              sx={{ color: "contrast.main", textShadow: "none", fontFamily: "inherit" }}
+              sx={{
+                mt: "2rem",
+                color: "contrast.main",
+                fontSize: "1.3rem",
+                textShadow: "none",
+                fontWeight: "600",
+              }}
             >
               Hello! I'm Khaled Hammami <br /> a 2nd year IT student at ISET Nabeul. Amazed by new
               technologies, I'm on a path to become a professional developer. Also my fascination
