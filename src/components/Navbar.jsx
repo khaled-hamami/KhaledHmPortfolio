@@ -10,46 +10,88 @@ import { NavLink } from "react-router-dom"
 import Tilt from "react-parallax-tilt"
 import "../styles/index.css"
 
-
 export default function Navbar() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const [scrolling, setScrolling] = useState(false)
 
-  useEffect(() => {
-    let timeout
-
-    const handleScroll = () => {
-      if (!scrolling) {
-        setScrolling(true)
-      }
-
-      clearTimeout(timeout)
-
-      timeout = setTimeout(() => {
-        setScrolling(false)
-      }, 1500)
+  let timeout
+  const handleScroll = () => {
+    if (!scrolling) {
+      setScrolling(true)
     }
+
+    clearTimeout(timeout)
+
+    timeout = setTimeout(() => {
+      setScrolling(false)
+    }, 1500)
+  }
+  useEffect(() => {
     window.addEventListener("scroll", handleScroll)
 
     return () => {
       window.removeEventListener("scroll", handleScroll)
     }
   }, [scrolling])
+  const handleSettingsVisible = () => {
+    dispatch(setSettingsVisible())
+  }
+
+  const StyledAppBar = styled(AppBar)(({ theme }) => ({
+    position: "sticky",
+    backgroundColor: "transparent",
+    backdropFilter: "blur(5px)",
+    top: 0,
+    transition: "transform 0.3s ease",
+    transform: scrolling ? "translateY(-100%)" : "none",
+    width: "100%",
+  }))
+
+  const CustomNavLink = styled(NavLink)(({ theme }) => ({
+    textDecoration: "none",
+    color: theme.palette.contrast.main,
+    fontSize: "1.1rem",
+    fontWeight: "bold",
+    cursor: "pointer",
+    position: "relative",
+    transition: "color 0.3s ease",
+    "&::after": {
+      content: "''",
+      position: "absolute",
+      bottom: 0,
+      left: "50%",
+      transform: "translateX(-50%)",
+      width: 0,
+      height: "1.7px",
+      background: theme.palette.primary.main,
+      transition: "width 0.3s cubic-bezier(0.165, 0.84, 0.44, 1.1)",
+      transformOrigin: "center",
+    },
+    "&:hover": {
+      color: theme.palette.contrast.main,
+      "&::after": {
+        width: "80%",
+      },
+    },
+
+    // Responsive styling
+    [theme.breakpoints.up("sm")]: {
+      padding: ".3rem",
+      fontSize: ".8rem",
+    },
+    [theme.breakpoints.up("md")]: {
+      padding: ".7rem",
+      fontSize: "1.1rem",
+    },
+    [theme.breakpoints.up("lg")]: {
+      padding: "1rem",
+      fontSize: "1.1rem",
+    },
+  }))
 
   return (
-    <AppBar
-      className={scrolling ? "hidden" : ""}
-      sx={{
-        position: "sticky",
-        backgroundColor: "transparent",
-        backdropFilter: "blur(5px)",
-        top: 0,
-        transition: "transform 0.3s ease",
-        transform: scrolling ? "translateY(-100%)" : "none",
-        width: "100%",
-      }}
-    >
+    <StyledAppBar>
       <Container maxWidth="1">
         <Toolbar
           sx={{
@@ -85,7 +127,7 @@ export default function Navbar() {
               flex: "6",
               display: { xs: "none", sm: "flex" },
               justifyContent: "right",
-              paddingRight: {md:'1.5rem',lg:'2rem'},
+              pr: { md: "1.5rem", lg: "2rem" },
               fontFamily: "post-font,great-font,sans-serif",
             }}
           >
@@ -130,7 +172,7 @@ export default function Navbar() {
               ABOUT
             </CustomNavLink>
           </Box>
-          <IconButton onClick={() => dispatch(setSettingsVisible())}>
+          <IconButton onClick={handleSettingsVisible}>
             <SettingsSharpIcon
               sx={{
                 color: "primary.main",
@@ -142,7 +184,7 @@ export default function Navbar() {
               }}
             />
           </IconButton>
-          <IconButton onClick={() => dispatch(setSettingsVisible())}>
+          <IconButton onClick={handleSettingsVisible}>
             <SegmentSharpIcon
               sx={{
                 color: "primary.main",
@@ -155,47 +197,6 @@ export default function Navbar() {
           </IconButton>
         </Toolbar>
       </Container>
-    </AppBar>
+    </StyledAppBar>
   )
 }
-const CustomNavLink = styled(NavLink)(({ theme }) => ({
-  textDecoration: "none",
-  color: theme.palette.contrast.main,
-  fontSize: "1.1rem",
-  fontWeight: "bold",
-  cursor: "pointer",
-  position: "relative",
-  transition: "color 0.3s ease",
-  "&::after": {
-    content: "''",
-    position: "absolute",
-    bottom: 0,
-    left: "50%",
-    transform: "translateX(-50%)",
-    width: 0,
-    height: "1.7px",
-    background: theme.palette.primary.main,
-    transition: "width 0.3s cubic-bezier(0.165, 0.84, 0.44, 1.1)",
-    transformOrigin: "center",
-  },
-  "&:hover": {
-    color: theme.palette.contrast.main,
-    "&::after": {
-      width: "80%",
-    },
-  },
-
-  // Responsive styling
-  [theme.breakpoints.up("sm")]: {
-    padding: ".3rem",
-    fontSize: ".8rem",
-  },
-  [theme.breakpoints.up("md")]: {
-    padding: ".7rem",
-    fontSize: "1.1rem",
-  },
-  [theme.breakpoints.up("lg")]: {
-    padding: "1rem",
-    fontSize: "1.1rem",
-  },
-}))

@@ -29,7 +29,7 @@ export default function App() {
     setLoading(false)
     //to set the theme to default only if this is the first site visit
     const checkTheme = () => {
-      if (localStorage.getItem("theme") == null) localStorage.setItem("theme", "lightMode")
+      if (sessionStorage.getItem("theme") == null) sessionStorage.setItem("theme", "lightMode")
     }
     checkTheme()
 

@@ -59,34 +59,34 @@ export default function Settings() {
         Settings
       </Typography>
       <Box display="flex" width="60%" justifyContent="space-between" alignItems="center">
-        <Typography fontWeight="Bold">theme</Typography>
+        <Typography fontWeight="Bold">Theme</Typography>
         <Box
           onClick={() => {
             dispatch(setDarkMode())
 
             //   toogle theme
-            localStorage.setItem("theme", darkMode == true ? "lightMode" : "darkMode")
+            sessionStorage.setItem("theme", darkMode == true ? "lightMode" : "darkMode")
           }}
         >
           <ThemeSwitcher id="themeSwitcher" />
         </Box>
       </Box>
       <Box display="flex" width="60%" justifyContent="space-between" alignItems="center">
-        <Typography fontWeight="Bold"> particles </Typography>
-        <Checkbox 
-        id="Particle"
-        onChange={onChangeParticles}
-        defaultChecked={window.innerWidth < 400 ? false : true}
+        <Typography fontWeight="Bold"> Particles </Typography>
+        <Checkbox
+          id="Particle"
+          onChange={onChangeParticles}
+          defaultChecked={window.innerWidth < 400 ? false : true}
           sx={{
             color: "#cd5ff8",
             "&.Mui-checked": {
               color: "#cd5ff8",
             },
           }}
-          />
+        />
       </Box>
       <Box display="flex" width="60%" justifyContent="space-between" alignItems="center">
-        <Typography fontWeight="Bold"> particles interactivity</Typography>
+        <Typography fontWeight="Bold"> Particles interactivity</Typography>
         <Checkbox
           id="Particle Interactivity"
           onChange={onChangeInteractivity}
@@ -102,6 +102,8 @@ export default function Settings() {
     </Paper>
   )
 }
+
+
 
 const ThemeSwitcher = styled(Switch)(({ theme }) => ({
   width: 62,
