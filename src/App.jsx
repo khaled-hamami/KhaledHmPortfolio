@@ -8,7 +8,7 @@ const Resume = React.lazy(() => import("./pages/Resume.jsx"))
 const About = React.lazy(() => import("./pages/About.jsx"))
 import Footer from "./components/Footer"
 import { lightTheme, darkTheme } from "./config/theme"
-import ParticlesBakground from "./config/Particles"
+const ParticlesBakground = React.lazy(() => import("./config/Particles"))
 import Navbar from "./components/Navbar"
 import Settings from "./components/Settings"
 import { setParticlesFalse } from "./redux/particlesSlice"
@@ -47,7 +47,9 @@ export default function App() {
     <Loader loading={loading} />
   ) : (
     <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
-      {particlesVisible && <ParticlesBakground mode={darkMode} />}
+      <React.Suspense fallback={<Loader />}>
+        {particlesVisible && <ParticlesBakground mode={darkMode} />}
+      </React.Suspense>
       <Box
         className="background"
         sx={{
