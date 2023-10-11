@@ -1,9 +1,9 @@
 import { Box, Button, Container, Typography } from "@mui/material"
 import { AutoTyper } from "../utils/AutoTyper"
-import homeImage1 from "../assets/images/Home-image-1.png"
-import homeImage2 from "../assets/images/Home-image-2.png"
-import smallHomeImage1 from "../assets/images/Home-image-small-1.png"
-import smallHomeImage2 from "../assets/images/Home-image-small-2.png"
+import homeImage1 from "../assets/images/Home-image-1.webp"
+import homeImage2 from "../assets/images/Home-image-2.webp"
+import smallHomeImage1 from "../assets/images/Home-image-small-1.webp"
+import smallHomeImage2 from "../assets/images/Home-image-small-2.webp"
 import handleDownloadClick from "../utils/DownloadResume"
 import { useEffect, useState } from "react"
 

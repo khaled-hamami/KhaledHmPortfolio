@@ -1,11 +1,11 @@
 import { Box, Container, Typography } from "@mui/material"
 import CertificateCard from "../components/CertificateCard"
-import googleCertif from "../assets/images/certif1.png"
-import reactCertif from "../assets/images/certif2.png"
-import canvaCertif from "../assets/images/certif3.png"
-import googleCertifSmall from "../assets/images/certif1-small.png"
-import reactCertifSmall from "../assets/images/certif2-small.png"
-import canvaCertifSmall from "../assets/images/certif3-small.png"
+import googleCertif from "../assets/images/certif1.webp"
+import reactCertif from "../assets/images/certif2.webp"
+import canvaCertif from "../assets/images/certif3.webp"
+import googleCertifSmall from "../assets/images/certif1-small.webp"
+import reactCertifSmall from "../assets/images/certif2-small.webp"
+import canvaCertifSmall from "../assets/images/certif3-small.webp"
 
 const CertificateData = [
   {
