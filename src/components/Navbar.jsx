@@ -15,83 +15,44 @@ export default function Navbar() {
   const navigate = useNavigate()
   const [scrolling, setScrolling] = useState(false)
 
-  let timeout
-  const handleScroll = () => {
-    if (!scrolling) {
-      setScrolling(true)
-    }
-
-    clearTimeout(timeout)
-
-    timeout = setTimeout(() => {
-      setScrolling(false)
-    }, 1500)
-  }
   useEffect(() => {
+    let timeout
+
+    const handleScroll = () => {
+      if (!scrolling) {
+        setScrolling(true)
+      }
+
+      clearTimeout(timeout)
+
+      timeout = setTimeout(() => {
+        setScrolling(false)
+      }, 1500)
+    }
     window.addEventListener("scroll", handleScroll)
 
     return () => {
       window.removeEventListener("scroll", handleScroll)
     }
   }, [scrolling])
+
   const handleSettingsVisible = () => {
     dispatch(setSettingsVisible())
   }
 
-  const StyledAppBar = styled(AppBar)(({ theme }) => ({
-    position: "sticky",
-    backgroundColor: "transparent",
-    backdropFilter: "blur(5px)",
-    top: 0,
-    transition: "transform 0.3s ease",
-    transform: scrolling ? "translateY(-100%)" : "none",
-    width: "100%",
-  }))
-
-  const CustomNavLink = styled(NavLink)(({ theme }) => ({
-    textDecoration: "none",
-    color: theme.palette.contrast.main,
-    fontSize: "1.1rem",
-    fontWeight: "bold",
-    cursor: "pointer",
-    position: "relative",
-    transition: "color 0.3s ease",
-    "&::after": {
-      content: "''",
-      position: "absolute",
-      bottom: 0,
-      left: "50%",
-      transform: "translateX(-50%)",
-      width: 0,
-      height: "1.7px",
-      background: theme.palette.primary.main,
-      transition: "width 0.3s cubic-bezier(0.165, 0.84, 0.44, 1.1)",
-      transformOrigin: "center",
-    },
-    "&:hover": {
-      color: theme.palette.contrast.main,
-      "&::after": {
-        width: "80%",
-      },
-    },
-
-    // Responsive styling
-    [theme.breakpoints.up("sm")]: {
-      padding: ".3rem",
-      fontSize: ".8rem",
-    },
-    [theme.breakpoints.up("md")]: {
-      padding: ".7rem",
-      fontSize: "1.1rem",
-    },
-    [theme.breakpoints.up("lg")]: {
-      padding: "1rem",
-      fontSize: "1.1rem",
-    },
-  }))
-
   return (
-    <StyledAppBar>
+    <AppBar
+      className={scrolling ? "hidden" : ""}
+      sx={{
+        position: "sticky",
+        backgroundColor: "transparent",
+        backdropFilter: "blur(5px)",
+        top: 0,
+        transition: "transform 0.3s ease",
+        transform: scrolling ? "translateY(-100%)" : "none",
+        width: "100%",
+      }}
+    >
       <Container maxWidth="1">
         <Toolbar
           sx={{
@@ -127,7 +88,7 @@ export default function Navbar() {
               flex: "6",
               display: { xs: "none", sm: "flex" },
               justifyContent: "right",
-              pr: { md: "1.5rem", lg: "2rem" },
+              paddingRight: { md: "1.5rem", lg: "2rem" },
               fontFamily: "post-font,great-font,sans-serif",
             }}
           >
@@ -137,7 +98,7 @@ export default function Navbar() {
               }}
               to="/"
             >
-              HOME
+              Home
             </CustomNavLink>
             <CustomNavLink
               style={({ isActive }) => {
@@ -145,7 +106,7 @@ export default function Navbar() {
               }}
               to="/projects"
             >
-              PROJECTS
+              Projects
             </CustomNavLink>
             <CustomNavLink
               style={({ isActive }) => {
@@ -153,7 +114,7 @@ export default function Navbar() {
               }}
               to="/certificates"
             >
-              CERTIFICATES
+              Certificates
             </CustomNavLink>
             <CustomNavLink
               style={({ isActive }) => {
@@ -161,7 +122,7 @@ export default function Navbar() {
               }}
               to="/resume"
             >
-              RESUME
+              Resume
             </CustomNavLink>
             <CustomNavLink
               style={({ isActive }) => {
@@ -169,7 +130,7 @@ export default function Navbar() {
               }}
               to="/about"
             >
-              ABOUT
+              About
             </CustomNavLink>
           </Box>
           <IconButton onClick={handleSettingsVisible}>
@@ -197,6 +158,48 @@ export default function Navbar() {
           </IconButton>
         </Toolbar>
       </Container>
-    </StyledAppBar>
+    </AppBar>
   )
 }
+const CustomNavLink = styled(NavLink)(({ theme }) => ({
+  textDecoration: "none",
+  color: theme.palette.contrast.main,
+  fontSize: "1.1rem",
+  fontWeight: "bold",
+  fontFamily: "post-font, great-font, sans-serif",
+  cursor: "pointer",
+  position: "relative",
+  transition: "color 0.3s ease",
+  "&::after": {
+    content: "''",
+    position: "absolute",
+    bottom: 0,
+    left: "50%",
+    transform: "translateX(-50%)",
+    width: 0,
+    height: "1.7px",
+    background: theme.palette.primary.main,
+    transition: "width 0.3s cubic-bezier(0.165, 0.84, 0.44, 1.1)",
+    transformOrigin: "center",
+  },
+  "&:hover": {
+    color: theme.palette.contrast.main,
+    "&::after": {
+      width: "80%",
+    },
+  },
+
+  // Responsive styling
+  [theme.breakpoints.up("sm")]: {
+    padding: ".3rem",
+    fontSize: ".8rem",
+  },
+  [theme.breakpoints.up("md")]: {
+    padding: ".7rem",
+    fontSize: "1.1rem",
+  },
+  [theme.breakpoints.up("lg")]: {
+    padding: "1rem",
+    fontSize: "1.1rem",
+  },
+}))

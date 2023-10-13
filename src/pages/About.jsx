@@ -25,7 +25,6 @@ import typescriptLogo from "../assets/Logos/typescript.webp"
 import vscodeLogo from "../assets/Logos/vscode.webp"
 import AboutSkillCard from "../components/AboutSkillCard"
 import Tilt from "react-parallax-tilt"
-import { Email, Facebook, GitHub, LinkedIn } from "@mui/icons-material"
 
 const Skills = {
   react: react,

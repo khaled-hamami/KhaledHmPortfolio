@@ -8,14 +8,13 @@ const Resume = React.lazy(() => import("./pages/Resume.jsx"))
 const About = React.lazy(() => import("./pages/About.jsx"))
 import Footer from "./components/Footer"
 import { lightTheme, darkTheme } from "./config/theme"
-const ParticlesBakground = React.lazy(() => import("./config/Particles"))
+import ParticlesBakground from "./config/Particles"
 import Navbar from "./components/Navbar"
 import Settings from "./components/Settings"
 import { setParticlesFalse } from "./redux/particlesSlice"
 
 import Drawer from "./components/Drawer"
 import RouteError from "./pages/RouteError"
-import { ErrorBoundary } from "./components/ErrorBoudary"
 //ThemeProvider must be imported before Box or it will cause some issues
 import Loader from "./pages/Loader"
 import { ThemeProvider } from "@emotion/react"
@@ -47,9 +46,7 @@ export default function App() {
     <Loader loading={loading} />
   ) : (
     <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
-      <React.Suspense fallback={<Loader />}>
-        {particlesVisible && <ParticlesBakground mode={darkMode} />}
-      </React.Suspense>
+      {particlesVisible && <ParticlesBakground mode={darkMode} />}
       <Box
         className="background"
         sx={{
@@ -59,7 +56,6 @@ export default function App() {
         }}
       >
         <Router>
-          <ErrorBoundary>
             <Navbar />
 
             {settingsVisible && <Settings />}
@@ -109,7 +105,6 @@ export default function App() {
             </Routes>
             <Footer />
             <Drawer />
-          </ErrorBoundary>
         </Router>
       </Box>
     </ThemeProvider>
