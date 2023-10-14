@@ -133,7 +133,7 @@ export default function Navbar() {
               About
             </CustomNavLink>
           </Box>
-          <IconButton onClick={handleSettingsVisible}>
+          <IconButton onClick={handleSettingsVisible} name="navigation button">
             <SettingsSharpIcon
               sx={{
                 color: "primary.main",
@@ -145,7 +145,7 @@ export default function Navbar() {
               }}
             />
           </IconButton>
-          <IconButton onClick={handleSettingsVisible}>
+          <IconButton onClick={handleSettingsVisible} name="navigation button">
             <SegmentSharpIcon
               sx={{
                 color: "primary.main",

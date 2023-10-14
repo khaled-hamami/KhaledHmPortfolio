@@ -94,55 +94,7 @@ export default function About() {
           ))}
         </Container>
       </fieldset>
-      {/*
-      <hr
-        className="style-seven"
-        style={{
-          position: "absolute",
-          left: "0",
-          right: "0",
-          width: "100%",
-        }}
-      />
-      <br />
-      <hr
-        className="style-seven"
-        style={{
-          position: "absolute",
-          left: "0",
-          right: "0",
-          width: "100%",
-        }}
-      />
-      <Typography m="120px 20px" variant="h4" gutterBottom>
-        Contact
-      </Typography>
-      <Container
-        maxWidth="xxl"
-        sx={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          flexDirection: "column",
-        }}
-      >
-        <Typography variant="h6">You can contact me at</Typography>
-        <Box>
-          <IconButton>
-            <LinkedIn />
-          </IconButton>
-          <IconButton>
-            <Email />
-          </IconButton>
-          <IconButton>
-            <Facebook />
-          </IconButton>
-          <IconButton>
-            <GitHub />
-          </IconButton>
-        </Box>
-      </Container>
-        */}
+      
     </>
   )
 }

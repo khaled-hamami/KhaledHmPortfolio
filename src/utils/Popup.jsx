@@ -12,6 +12,7 @@ export default function Popup() {
         <Alert
           action={
             <IconButton
+              name="navigation button"
               aria-label="close"
               color="inherit"
               size="small"

@@ -88,6 +88,7 @@ export default function ProjectCard({
         avatar={<Avatar aria-label="avatar" src={Logo} alt="Logo Image" />}
         action={
           <IconButton
+            name="navigation button"
             aria-label="Github"
             target="_blank"
             href={sourceCode}
@@ -217,6 +218,7 @@ export default function ProjectCard({
             <Alert
               action={
                 <IconButton
+                  name="navigation button"
                   aria-label="close"
                   color="inherit"
                   size="small"

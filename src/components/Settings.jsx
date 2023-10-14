@@ -50,6 +50,7 @@ export default function Settings() {
       }}
     >
       <IconButton
+        name="navigation button"
         sx={{ alignSelf: "flex-end", color: "contrast.main" }}
         onClick={() => dispatch(setSettingsVisible())}
       >
@@ -102,8 +103,6 @@ export default function Settings() {
     </Paper>
   )
 }
-
-
 
 const ThemeSwitcher = styled(Switch)(({ theme }) => ({
   width: 62,
