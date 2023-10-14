@@ -25,6 +25,10 @@ html body {
   height: 100%;
 }
 
+.typewriter-container:first-child{
+  user-select: none;
+  ;
+}
 /******************************************    SCROLLBAR    ******************************************/
 
 ::-webkit-scrollbar {

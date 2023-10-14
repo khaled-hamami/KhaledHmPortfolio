@@ -51,7 +51,8 @@ export default function Footer() {
           <img
             src={Logo}
             alt="Logo Image"
-            width="30px"
+            width="23px"
+            height="28px"
             style={{ cursor: "pointer" }}
             onClick={() => location.reload()}
           />

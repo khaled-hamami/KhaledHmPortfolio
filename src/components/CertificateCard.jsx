@@ -59,7 +59,7 @@ export default function CertificateCard({
       }}
     >
       <CardHeader
-        avatar={<Avatar aria-label="avatar" src={Logo} />}
+        avatar={<Avatar aria-label="avatar" src={Logo} alt="Logo Image" />}
         action={<Typography fontWeight="600">{date}</Typography>}
         title={title}
         subheader={about}

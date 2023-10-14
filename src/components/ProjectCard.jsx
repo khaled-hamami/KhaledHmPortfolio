@@ -85,7 +85,7 @@ export default function ProjectCard({
       }}
     >
       <CardHeader
-        avatar={<Avatar aria-label="avatar" src={Logo} />}
+        avatar={<Avatar aria-label="avatar" src={Logo} alt="Logo Image" />}
         action={
           <IconButton
             aria-label="Github"
