@@ -1,9 +1,11 @@
 import { Box, Container, Typography } from "@mui/material"
 import CertificateCard from "../components/CertificateCard"
 import googleCertif from "../assets/images/certif1.webp"
+import googleCertif2 from "../assets/images/certif4.webp"
 import reactCertif from "../assets/images/certif2.webp"
 import canvaCertif from "../assets/images/certif3.webp"
 import googleCertifSmall from "../assets/images/certif1-small.webp"
+import googleCertifSmall2 from "../assets/images/certif4-small.webp"
 import reactCertifSmall from "../assets/images/certif2-small.webp"
 import canvaCertifSmall from "../assets/images/certif3-small.webp"
 
@@ -23,9 +25,18 @@ const CertificateData = [
     image: reactCertif,
     smallImage: reactCertifSmall,
     date: "9/23/2023",
-    about: "Developing Front-end Apps With React",
+    about: "Developing Front-end With React",
     link: "https://www.coursera.org/account/accomplishments/certificate/Z4EL85QRYYCH",
     linkedIn: "#",
+  },
+  {
+    title: "GOOGLE",
+    image: googleCertif2,
+    smallImage: googleCertifSmall2,
+    date: "10/15/2023",
+    about: "The Bits and Bytes of Networking",
+    link: "https://www.coursera.org/account/accomplishments/certificate/F8FXVQJXUFQA",
+    linkedIn: "https://www.linkedin.com/feed/update/urn:li:activity:7119435330507661313/",
   },
   {
     title: "CANVA",
