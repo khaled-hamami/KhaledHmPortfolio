@@ -8,6 +8,10 @@ import googleCertifSmall from "../assets/images/certif1-small.webp"
 import googleCertifSmall2 from "../assets/images/certif4-small.webp"
 import reactCertifSmall from "../assets/images/certif2-small.webp"
 import canvaCertifSmall from "../assets/images/certif3-small.webp"
+import googleAvatar from "../assets/avatars/google.webp"
+import ibmAvatar from "../assets/avatars/ibm.webp"
+import awsAvatar from "../assets/avatars/aws.webp"
+import canvaAvatar from "../assets/avatars/canva.webp"
 
 const CertificateData = [
   {
@@ -19,7 +23,12 @@ const CertificateData = [
     link: "https://www.coursera.org/account/accomplishments/certificate/QBTV8WLKBQ76",
     linkedIn:
       "https://www.linkedin.com/posts/khaledhm_google-technical-support-fundamentals-activity-7105627857451716608-Egyn?utm_source=share&utm_medium=member_desktop",
+    platform: "linkedin",
+    verifiable: true,
+    postedOnLinked: true,
+    avatar: googleAvatar,
   },
+
   {
     title: "IBM",
     image: reactCertif,
@@ -28,6 +37,10 @@ const CertificateData = [
     about: "Developing Front-end With React",
     link: "https://www.coursera.org/account/accomplishments/certificate/Z4EL85QRYYCH",
     linkedIn: "#",
+    platform: "linkedin",
+    verifiable: true,
+    postedOnLinked: true,
+    avatar: ibmAvatar,
   },
   {
     title: "GOOGLE",
@@ -37,6 +50,10 @@ const CertificateData = [
     about: "The Bits and Bytes of Networking",
     link: "https://www.coursera.org/account/accomplishments/certificate/F8FXVQJXUFQA",
     linkedIn: "https://www.linkedin.com/feed/update/urn:li:activity:7119435330507661313/",
+    platform: "linkedin",
+    verifiable: true,
+    postedOnLinked: true,
+    avatar: googleAvatar,
   },
   {
     title: "CANVA",
@@ -46,6 +63,10 @@ const CertificateData = [
     about: "Canva Desings Certificate",
     link: "#",
     linkedIn: "#",
+    platform: "linkedin",
+    verifiable: false,
+    postedOnLinked: false,
+    avatar: canvaAvatar,
   },
 ]
 
@@ -88,6 +109,10 @@ export default function Certificates() {
                 link={certificate.link}
                 linkedIn={certificate.linkedIn}
                 smallImage={certificate.smallImage}
+                platform={certificate.platform}
+                verifiable={certificate.verifiable}
+                postedOnLinked={certificate.postedOnLinked}
+                avatar={certificate.avatar}
               />
             </div>
           ))}

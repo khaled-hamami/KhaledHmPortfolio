@@ -21,6 +21,10 @@ export default function CertificateCard({
   linkedIn,
   backgroundImage,
   smallImage,
+  platform,
+  verifiable,
+  postedOnLinked,
+  avatar,
 }) {
   const { darkMode } = useSelector((state) => state.darkMode)
   //lazy load images with blur placeholder background
@@ -58,8 +62,9 @@ export default function CertificateCard({
         boxShadow: "5px 5px 10px 2px rgba(120, 0, 255, 0.5)",
       }}
     >
+      {console.log(avatar)}
       <CardHeader
-        avatar={<Avatar aria-label="avatar" src={Logo} alt="Logo Image" />}
+        avatar={<Avatar aria-label="avatar" src={avatar} alt="Logo Image" />}
         action={<Typography fontWeight="600">{date}</Typography>}
         title={title}
         subheader={about}
@@ -97,6 +102,7 @@ export default function CertificateCard({
           }}
           href={link}
           target="_blank"
+          disabled={!verifiable}
         >
           VERIFY
         </Button>
@@ -113,8 +119,9 @@ export default function CertificateCard({
           }}
           href={linkedIn}
           target="_blank"
+          disabled={!postedOnLinked}
         >
-          LinkedIn
+          {platform}
         </Button>
       </CardActions>
     </Card>

@@ -12,7 +12,6 @@ import ParticlesBakground from "./config/Particles"
 import Navbar from "./components/Navbar"
 import Settings from "./components/Settings"
 import { setParticlesFalse } from "./redux/particlesSlice"
-
 import Drawer from "./components/Drawer"
 import RouteError from "./pages/RouteError"
 //ThemeProvider must be imported before Box or it will cause some issues
