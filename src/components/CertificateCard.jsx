@@ -62,7 +62,6 @@ export default function CertificateCard({
         boxShadow: "5px 5px 10px 2px rgba(120, 0, 255, 0.5)",
       }}
     >
-      {console.log(avatar)}
       <CardHeader
         avatar={<Avatar aria-label="avatar" src={avatar} alt="Logo Image" />}
         action={<Typography fontWeight="600">{date}</Typography>}

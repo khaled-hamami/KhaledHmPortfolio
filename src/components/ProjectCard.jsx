@@ -170,11 +170,11 @@ export default function ProjectCard({
         >
           <Typography
             sx={{
+              display: expanded ? "none" : "block",
               fontWeight: "bold",
               fontSize: { xs: ".6rem", sm: ".7rem", md: ".8rem", lg: ".85rem" },
               color: "contrast.main",
             }}
-            display={expanded ? "none" : "block"}
           >
             Techstack
           </Typography>

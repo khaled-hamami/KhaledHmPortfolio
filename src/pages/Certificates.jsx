@@ -90,7 +90,7 @@ export default function Certificates() {
         <br />
         <Box width="100%" display="flex" flexWrap="wrap" justifyContent="space-evenly">
           {CertificateData.map((certificate, index) => (
-            /*the div is for isolating the state so it desnt becoe shared*/
+            /*the div is for isolating the state so it deosnt become shared*/
             <div
               key={index}
               style={{

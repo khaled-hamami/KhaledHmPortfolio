@@ -17,7 +17,9 @@ import RouteError from "./pages/RouteError"
 //ThemeProvider must be imported before Box or it will cause some issues
 import Loader from "./pages/Loader"
 import { ThemeProvider } from "@emotion/react"
-import { Box } from "@mui/material"
+import { Box, Skeleton } from "@mui/material"
+import ResumeSkeleton from "./Skeletons/ResumeSkeleton"
+import CardSkeleton from "./Skeletons/CardSkeleton"
 
 export default function App() {
   const dispatch = useDispatch()
@@ -31,7 +33,7 @@ export default function App() {
     }
     checkTheme()
 
-    // disable the particles if the device is phone to reduce lag
+    // disable the particles if the device is used phone to reduce lag
     if (window.innerWidth < 400) {
       dispatch(setParticlesFalse())
     }
@@ -42,7 +44,7 @@ export default function App() {
   const { settingsVisible } = useSelector((state) => state.settings)
 
   return loading ? (
-    <Loader loading={loading} />
+    <Loader />
   ) : (
     <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
       {particlesVisible && <ParticlesBakground mode={darkMode} />}
@@ -55,55 +57,69 @@ export default function App() {
         }}
       >
         <Router>
-            <Navbar />
+          <Navbar />
 
-            {settingsVisible && <Settings />}
-            <Routes>
-              <Route
-                path="/"
-                element={
-                  <React.Suspense fallback={<Loader />}>
-                    <Home />
-                  </React.Suspense>
-                }
-              />
-              <Route
-                path="/projects"
-                element={
-                  <React.Suspense fallback={<Loader />}>
-                    <Projects />
-                  </React.Suspense>
-                }
-              />
-              <Route
-                path="/certificates"
-                element={
-                  <React.Suspense fallback={<Loader />}>
-                    <Certificates />
-                  </React.Suspense>
-                }
-              />
-              <Route
-                path="/about"
-                element={
-                  <React.Suspense fallback={<Loader />}>
-                    <About />
-                  </React.Suspense>
-                }
-              />
-              <Route
-                path="/resume"
-                element={
-                  <React.Suspense fallback={<Loader />}>
-                    <Resume />
-                  </React.Suspense>
-                }
-              />
+          {settingsVisible && <Settings />}
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <React.Suspense fallback={<Loader />}>
+                  <Home />
+                </React.Suspense>
+              }
+            />
+            <Route
+              path="/projects"
+              element={
+                <React.Suspense
+                  fallback={
+                    <CardSkeleton
+                      mappedOverArray={new Array(5).fill().map((_, index) => index * 2 + 1)}
+                    />
+                  }
+                >
+                  <Projects />
+                </React.Suspense>
+              }
+            />
+            <Route
+              path="/certificates"
+              element={
+                <React.Suspense
+                  fallback={
+                    <CardSkeleton
+                      mappedOverArray={new Array(4).fill().map((_, index) => index * 2 + 1)}
+                    />
+                  }
+                >
+                  <Certificates />
+                </React.Suspense>
+              }
+            />
+            <Route
+              path="/about"
+              element={
+                <React.Suspense
+                  fallback={<Loader />}
+                >
+                  <About />
+                </React.Suspense>
+              }
+            />
+            <Route
+              path="/resume"
+              element={
+                <React.Suspense fallback={<ResumeSkeleton />}>
+                  <Resume />
+                </React.Suspense>
+              }
+            />
 
-              <Route path="/*" Component={RouteError} />
-            </Routes>
-            <Footer />
-            <Drawer />
+            <Route path="/*" Component={RouteError} />
+          </Routes>
+          <Footer />
+          <Drawer />
         </Router>
       </Box>
     </ThemeProvider>
