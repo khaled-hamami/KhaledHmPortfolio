@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { Button, Container, IconButton, TextField, Typography } from "@mui/material"
 
 //Importing logo images
@@ -25,10 +25,11 @@ import typescriptLogo from "../assets/Logos/typescript.webp"
 import vscodeLogo from "../assets/Logos/vscode.webp"
 import AboutSkillCard from "../components/AboutSkillCard"
 import Tilt from "react-parallax-tilt"
-import contactShema from "../shemas/contact"
+import contactShema from "../shemas/contactSchema"
 import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
 import contact from "../apis/contact"
+import Popup from "../utils/Popup"
 
 const Skills = {
   react: react,
@@ -53,19 +54,45 @@ const Skills = {
   VsCode: vscodeLogo,
   Linux: linuxLogo,
 }
-
 export default function About() {
-  // a state to disable the submit button to prevent the user to sens multiple requests
+  useEffect(() => {
+    if (location.hash) {
+      const element = document.querySelector(location.hash)
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" })
+      }
+    }
+  }, [location.hash])
+  // a state to disable the submit button to prevent the user to spam multiple requests
   const [fetching, setFetching] = useState(false)
-
-  const submit = (data) => {
-    contact(data.name, data.email, data.subject, data.message, setFetching)
+  //a function to handle error and success popups
+  const handleResult = () => {
+    return (
+      <Popup data={success != "" ? success : error} status={success != "" ? "success" : "error"} />
+    )
+  }
+  //popup state of the form submission alert incase of error
+  const [error, setError] = useState("")
+  const [success, setSuccess] = useState("")
+  const submit = async (data) => {
+    await contact(
+      data.name,
+      data.email,
+      data.subject,
+      data.message,
+      setFetching,
+      setError,
+      setSuccess
+    )
+    handleResult()
+    setTimeout(() => {
+      document.getElementById("form").reset()
+    }, 500)
   }
 
   const form = useForm({ resolver: yupResolver(contactShema) })
   const { register, handleSubmit, formState } = form
   const { errors } = formState
-
   return (
     <>
       <br />
@@ -204,11 +231,12 @@ export default function About() {
                 width: "230px",
                 textShadow: "none",
                 "&:hover": { color: "contrast.reverse", scale: "1.02" },
-                mb: "100px",
+                mb: "40px",
               }}
             >
               Submit
             </Button>
+            {(error || success) && handleResult()}
           </form>
         </Container>
       </fieldset>

@@ -15,7 +15,7 @@ export default function Footer() {
 
   return (
     <>
-      {open && <Popup />}
+      {open && <Popup data="The email has been copied to your Clipboard" status="success" />}
       <Box
         sx={{
           width: "100%",

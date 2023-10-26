@@ -3,13 +3,14 @@ import CloseIcon from "@mui/icons-material/Close"
 import { useState } from "react"
 import copyToClipboard from "./CopyToClipboard"
 
-export default function Popup() {
+export default function Popup({ data, status }) {
   const [open, setOpen] = useState(true)
 
   return (
     <Box sx={{ width: "100%" }}>
       <Collapse in={open}>
         <Alert
+          severity={status}
           action={
             <IconButton
               name="navigation button"
@@ -26,7 +27,7 @@ export default function Popup() {
           }
           sx={{ mb: 2 }}
         >
-          The email has been copied to your Clipboard
+          {data}
         </Alert>
       </Collapse>
     </Box>

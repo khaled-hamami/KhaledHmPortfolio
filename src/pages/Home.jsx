@@ -1,4 +1,4 @@
-import { Box, Button, Container, Typography } from "@mui/material"
+import { Box, Button, Container, Link, Typography } from "@mui/material"
 import { AutoTyper } from "../utils/AutoTyper"
 import homeImage1 from "../assets/images/Home-image-1.webp"
 import homeImage2 from "../assets/images/Home-image-2.webp"
@@ -6,10 +6,10 @@ import smallHomeImage1 from "../assets/images/Home-image-small-1.webp"
 import smallHomeImage2 from "../assets/images/Home-image-small-2.webp"
 import handleDownloadClick from "../utils/DownloadResume"
 import { useEffect, useState } from "react"
-
+import { useNavigate } from "react-router-dom"
 export default function Home() {
+  const navigate = useNavigate()
   //lazy load image with blured background
-
   const [highResHomeImage1, setHighResHomeImage1] = useState(null)
   const [highResHomeImage2, setHighResHomeImage2] = useState(null)
 
@@ -26,6 +26,8 @@ export default function Home() {
       setHighResHomeImage2(homeImg2.src)
     }
   }, [homeImage1, homeImage2])
+
+  
 
   return (
     <Box
@@ -113,6 +115,9 @@ export default function Home() {
                 width: "180px",
                 textShadow: "none",
                 "&:hover": { color: "contrast.reverse", scale: "1.02" },
+              }}
+              onClick={() => {
+                navigate("/about#form")
               }}
             >
               Contact me

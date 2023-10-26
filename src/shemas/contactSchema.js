@@ -4,8 +4,7 @@ const contactSchema = yup.object({
   name: yup
     .string("Name can only be composed of characters")
     .required("Name is required")
-    .max(50, "Name is maximum 50 characters")
-    .min(2, "Name is minimum 2 characters"),
+    .max(50, "Name is maximum 50 characters"),
   email: yup
     .string()
     .required("Email is required")
@@ -16,14 +15,12 @@ const contactSchema = yup.object({
       /^[a-zA-Z0-9.@ éèà]+$/,
       "Email can only be composed of 'letters,' 'numbers,' '@,' and '.'"
     ),
-  subject: yup
-    .string()
-    .max(50, "Subject is maximum 50 letters")
-    .min(2, "Subject is minimum 2 letters"),
+  subject: yup.string().max(50, "Subject is maximum 50 letters"),
   message: yup
     .string()
     .required("Message is required")
+    .min(5, "Message is minimum 5 characters")
     .max(300, "Message is maximum 300 characters"),
-});
+})
 
-export default contactSchema;
+export default contactSchema
