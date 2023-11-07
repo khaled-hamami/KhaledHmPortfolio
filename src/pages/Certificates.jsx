@@ -36,7 +36,7 @@ const CertificateData = [
     date: "9/23/2023",
     about: "Developing Front-end With React",
     link: "https://www.coursera.org/account/accomplishments/certificate/Z4EL85QRYYCH",
-    linkedIn: "#",
+    linkedIn: "https://www.linkedin.com/posts/khaledhm_developing-front-end-apps-with-react-activity-7113615874514644993-nje7?utm_source=share&utm_medium=member_desktop",
     platform: "linkedin",
     verifiable: true,
     postedOnLinked: true,

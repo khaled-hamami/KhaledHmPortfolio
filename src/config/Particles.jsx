@@ -5,12 +5,13 @@ import { loadSlim } from "tsparticles-slim" // npm i tsparticles-slim
 
 export default function ParticlesBakground({ mode }) {
   const { particlesInteractivity } = useSelector((state) => state.particlesInteractivity)
+  const { particlesBehaviour } = useSelector((state) => state.particlesBehaviour)
   const particlesInit = useCallback(async (engine) => {
     await loadSlim(engine)
   }, [])
 
   return (
-    <Particles 
+    <Particles
       id="tsparticles"
       init={particlesInit}
       options={{
@@ -18,9 +19,8 @@ export default function ParticlesBakground({ mode }) {
           color: {
             value: "trasparent",
           },
-          
         },
-        fpsLimit: 240,
+        fpsLimit: 244,
         interactivity: {
           events: {
             onClick: {
@@ -29,7 +29,7 @@ export default function ParticlesBakground({ mode }) {
             },
             onHover: {
               enable: particlesInteractivity,
-              mode: "attract",
+              mode: particlesBehaviour ? "attract" : "repulse",
             },
             resize: true,
           },
