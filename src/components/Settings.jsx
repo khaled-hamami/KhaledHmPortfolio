@@ -73,7 +73,7 @@ export default function Settings() {
         alignItems: "center",
         backgroundColor: "transparent",
         position: "fixed",
-        width: { xs: "70%", sm: "50%", md: "30%" },
+        width: { xs: "70%", sm: "60%", md: "40%", lg: "30%" },
         height: "auto",
         top: "50%",
         left: "50%",
@@ -137,7 +137,10 @@ export default function Settings() {
       </Box>
       <Box display="flex" width="65%" justifyContent="space-between" alignItems="center">
         <Typography fontWeight="Bold"> Particles Behaviour</Typography>
-        <FormControl onChange={handleBehaviour} sx={{ display: "flex", flexDirection: "row" }}>
+        <FormControl
+          onChange={handleBehaviour}
+          sx={{ display: "flex", flexDirection: { xs: "column", sm: "row" } }}
+        >
           <FormControlLabel
             control={
               <Radio
@@ -151,7 +154,7 @@ export default function Settings() {
                 }}
               />
             }
-            label="attract"
+            label="pull"
             labelPlacement="start"
           />
           <FormControlLabel

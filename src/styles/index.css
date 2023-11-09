@@ -25,9 +25,8 @@ html body {
   height: 100%;
 }
 
-.typewriter-container:first-child{
+.typewriter-container:first-child {
   user-select: none;
-  ;
 }
 /******************************************    SCROLLBAR    ******************************************/
 
@@ -107,7 +106,26 @@ hr.style-seven:before {
   padding: 5px;
   cursor: pointer;
 }
+.infinte-loop {
+  background-color: black;
+  cursor: pointer;
+  animation: shake 5s infinite;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
 
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  25%,
+  75% {
+    transform: translateY(-3px); /* Adjust the distance of the shake as needed */
+  }
+  50% {
+    transform: translateY(0);
+  }
+}
 .projectCard {
   content: "";
   inset: 0;

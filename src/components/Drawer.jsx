@@ -24,8 +24,8 @@ const Puller = styled(Box)(({ theme }) => ({
   backgroundColor: theme.palette.primary.light,
   borderRadius: 3,
   position: "absolute",
-  top: 8,
-  left: "calc(50% - 50px)",
+  top: 1,
+  left: "calc(50% - 60px)",
 }))
 
 export default function Drawer(props) {
@@ -73,8 +73,8 @@ export default function Drawer(props) {
             right: 0,
             left: 0,
           }}
-        >
-          <Puller className="glow-effect" onClick={() => setOpen(true)} />
+          >
+          <Puller className="glow-effect infinte-loop" onClick={() => setOpen(true)}  />
         </StyledBox>
         <StyledBox
           sx={{
