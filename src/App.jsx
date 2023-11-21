@@ -100,9 +100,7 @@ export default function App() {
             <Route
               path="/about"
               element={
-                <React.Suspense
-                  fallback={<Loader />}
-                >
+                <React.Suspense fallback={<Loader />}>
                   <About />
                 </React.Suspense>
               }

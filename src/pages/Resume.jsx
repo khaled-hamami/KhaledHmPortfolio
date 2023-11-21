@@ -5,6 +5,10 @@ import smallCv from "../assets/images/cv-small.webp"
 import { useEffect, useState } from "react"
 
 export default function Resume() {
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   // Load the high-resolution image asynchronously
   const [highResImage, setHighResImage] = useState(null)
   useEffect(() => {

@@ -101,6 +101,16 @@ export default function ProjectCard({
         }
         title={title}
         subheader={about}
+        titleTypographyProps={{
+          fontSize: { xs: ".9rem", md: "1rem" },
+          textShadow: "none",
+          fontWeight: "600",
+        }}
+        subheaderTypographyProps={{
+          fontSize: { xs: ".8rem", md: ".9rem" },
+          textShadow: "none",
+          fontWeight: "600",
+        }}
       />
       <CardMedia
         component="img"

@@ -13,6 +13,7 @@ export const AutoTyper = () => {
         typeSpeed={100}
         deleteSpeed={100}
         delaySpeed={1500}
+        
       />
     </div>
   )

@@ -15,7 +15,6 @@
   margin: 0;
   box-sizing: border-box;
   scroll-behavior: smooth;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
   font-family: "poppins", "Helvetica", "Courier New", Courier, monospace !important;
 }
 
@@ -27,6 +26,7 @@ html body {
 
 .typewriter-container:first-child {
   user-select: none;
+  letter-spacing: -1px;
 }
 /******************************************    SCROLLBAR    ******************************************/
 

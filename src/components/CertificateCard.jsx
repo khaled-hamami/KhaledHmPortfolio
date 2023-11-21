@@ -67,6 +67,16 @@ export default function CertificateCard({
         action={<Typography fontWeight="600">{date}</Typography>}
         title={title}
         subheader={about}
+        titleTypographyProps={{
+          fontSize: { xs: ".9rem", md: "1rem" },
+          textShadow: "none",
+          fontWeight: "600",
+        }}
+        subheaderTypographyProps={{
+          fontSize: { xs: ".8rem", md: ".9rem" },
+          textShadow: "none",
+          fontWeight: "600",
+        }}
       />
       <div className="blured" style={{ backgroundImage: backgroundImage }}>
         <CardMedia

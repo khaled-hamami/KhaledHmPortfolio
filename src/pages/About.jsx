@@ -56,6 +56,10 @@ const Skills = {
 }
 export default function About() {
   useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
+  useEffect(() => {
     if (location.hash) {
       const element = document.querySelector(location.hash)
       if (element) {

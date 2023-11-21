@@ -6,10 +6,6 @@ import Logo from "../assets/favicon.webp"
 import styled from "@emotion/styled"
 import copyToClipboard from "../utils/CopyToClipboard"
 
-const redirect = (link) => {
-  window.open(link, "_blank")
-}
-
 export default function Footer() {
   const [open, SetOpen] = useState(false)
 
@@ -61,19 +57,22 @@ export default function Footer() {
         <Box display="flex" justifyContent="center" alignItems="center" width="100%">
           <StyledIcon
             sx={{ marginX: { xs: "5px", sm: "10px", md: "20px" } }}
-            onClick={() => redirect("https://github.com/khaled-hamami")}
+            href={"https://github.com/khaled-hamami"}
+            target="_blank"
           >
             <GitHub sx={{ color: "contrast.main", fontSize: { xs: "1.2rem", sm: "1.6rem" } }} />
           </StyledIcon>
           <StyledIcon
             sx={{ marginX: { xs: "5px", sm: "10px", md: "20px" } }}
-            onClick={() => redirect("https://www.linkedin.com/in/khaledhm")}
+            href={"https://www.linkedin.com/in/khaledhm"}
+            target="_blank"
           >
             <LinkedIn sx={{ color: "contrast.main", fontSize: { xs: "1.2rem", sm: "1.6rem" } }} />
           </StyledIcon>
           <StyledIcon
             sx={{ marginX: { xs: "5px", sm: "10px", md: "20px" } }}
-            onClick={() => redirect("https://www.facebook.com/profile.php?id=100028537561096")}
+            href={"https://www.facebook.com/profile.php?id=100028537561096"}
+            target="_blank"
           >
             <Facebook sx={{ color: "contrast.main", fontSize: { xs: "1.2rem", sm: "1.6rem" } }} />
           </StyledIcon>
@@ -92,7 +91,7 @@ export default function Footer() {
   )
 }
 
-const StyledIcon = styled(IconButton)(({ theme }) => ({
+const StyledIcon = styled(IconButton)(() => ({
   "&:hover": {
     boxShadow: "0 4px 6px -1px rgba(150, 0, 255, 0.5)",
     transform: "scale(1.05)",

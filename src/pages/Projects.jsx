@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { Box, Container, Typography } from "@mui/material"
 import ProjectCard from "../components/ProjectCard"
 import tuCasa from "../assets/images/tuCasa.webp"
@@ -69,6 +69,10 @@ const projectData = [
 ]
 
 export default function ProjectsPage() {
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   return (
     <>
       <br />

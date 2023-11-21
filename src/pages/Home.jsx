@@ -8,6 +8,9 @@ import handleDownloadClick from "../utils/DownloadResume"
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 export default function Home() {
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   const navigate = useNavigate()
   //lazy load image with blured background
   const [highResHomeImage1, setHighResHomeImage1] = useState(null)
@@ -26,8 +29,6 @@ export default function Home() {
       setHighResHomeImage2(homeImg2.src)
     }
   }, [homeImage1, homeImage2])
-
-  
 
   return (
     <Box
@@ -52,26 +53,29 @@ export default function Home() {
         <Box width="80%">
           <Typography
             sx={{
-              fontSize: { xs: "2rem", md: "3rem", lg: "3.5rem" },
+              fontSize: { xs: "2rem", md: "3rem" },
               color: "contrast.main",
+              letterSpacing: "-1px",
             }}
           >
             Hello!
           </Typography>
           <Typography
             sx={{
-              fontSize: { xs: "2rem", md: "3rem", lg: "3.5rem" },
+              fontSize: { xs: "2rem", md: "3rem" },
               color: "contrast.main",
               display: "inline-block",
+              letterSpacing: "-1px",
             }}
           >
             I'M&nbsp;
           </Typography>
           <Typography
             sx={{
-              fontSize: { xs: "2rem", md: "3rem", lg: "3.5rem" },
+              fontSize: { xs: "2rem", md: "3rem" },
               color: "primary.main",
               display: "inline-block",
+              letterSpacing: "-1px",
             }}
           >
             KHALED HAMMAMI
@@ -82,7 +86,7 @@ export default function Home() {
           <Typography
             component="div"
             sx={{
-              fontSize: { xs: "2rem", md: "3rem", lg: "4rem" },
+              fontSize: { xs: "2rem", md: "3rem" },
               color: "primary.main",
             }}
           >
@@ -93,7 +97,7 @@ export default function Home() {
             sx={{
               mt: "5rem",
               color: "contrast.main",
-              fontSize: "1.3rem",
+              fontSize: { xs: "1.1rem", md: "1.3rem" },
               textShadow: "none",
               fontWeight: "600",
             }}
@@ -112,6 +116,7 @@ export default function Home() {
               className="home-button"
               variant="contained"
               sx={{
+                fontSize: { xs: ".75rem", sm: ".95rem" },
                 width: "180px",
                 textShadow: "none",
                 "&:hover": { color: "contrast.reverse", scale: "1.02" },
@@ -126,6 +131,7 @@ export default function Home() {
               className="home-button"
               variant="contained"
               sx={{
+                fontSize: { xs: ".75rem", sm: ".95rem" },
                 width: "180px",
                 textShadow: "none",
                 "&:hover": { color: "contrast.reverse", scale: "1.02" },
@@ -199,7 +205,8 @@ export default function Home() {
               sx={{
                 color: "contrast.main",
                 mt: "3.5rem",
-                fontSize: { xs: "1.5rem", md: "2rem", lg: "2.5rem" },
+                fontSize: { xs: "2rem", md: "3rem" },
+                letterSpacing: "-1px",
               }}
             >
               Get to know<span style={{ color: "#be33f5" }}> me</span>
@@ -209,7 +216,7 @@ export default function Home() {
               sx={{
                 mt: "2rem",
                 color: "contrast.main",
-                fontSize: "1.3rem",
+                fontSize: { xs: "1.1rem", md: "1.3rem" },
                 textShadow: "none",
                 fontWeight: "600",
               }}
