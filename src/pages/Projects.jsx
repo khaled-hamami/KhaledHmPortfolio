@@ -11,6 +11,8 @@ import Back2GamingSmall from "../assets/images/Back2Gaming-small.webp"
 import AbsoluteZeroSmall from "../assets/images/AbsoluteZero-small.webp"
 import PythonSmall from "../assets/images/Python-small.webp"
 import PortfolioSmall from "../assets/images/Portfolio-small.webp"
+import EventProIEEEsmall from "../assets/images/EventProIEEEsmall.webp"
+import EventProIEEE from "../assets/images/EventProIEEE.webp"
 
 const projectData = [
   {
@@ -23,7 +25,8 @@ const projectData = [
     sourceCode: "https://github.com/khaled-hamami/tuCasa",
     description: [
       "REACT JS",
-      "EXPRESS / NODE JS",
+      "EXPRESS",
+      "NODE JS",
       "MATERIAL-UI",
       "JOTAI",
       "YUP",
@@ -50,7 +53,7 @@ const projectData = [
   },
   {
     title: "VIDEO GAMES PYHTON ANALYSIS",
-    about: "vg sales ",
+    about: "Video Games Sales",
     image: Python,
     smallImage: PythonSmall,
     link: "https://drive.google.com/drive/folders/14CdupGO8Sqo5IeyCQcrxppFaxR7ViQsH?usp=sharing",
@@ -65,6 +68,15 @@ const projectData = [
     link: "https://KhaledHm.tn",
     sourceCode: "https://github.com/khaled-hamami/KhaledHmPortfolio",
     description: ["REACT", "REDUX | TOOLKIT", "JOTAI", "MATERIAL-UI", "TS-PARTICLES"],
+  },
+  {
+    title: "PORTFOLIO",
+    about: "IEEE Club Event Manager",
+    image: EventProIEEE,
+    smallImage: EventProIEEEsmall,
+    link: "event-pro-ieee.vercel.app",
+    sourceCode: "https://github.com/khaled-hamami/Event-Pro-IEEE",
+    description: ["FRAMER MOTION", "REACT", "REACT FORM HOOK", "MATERIAL-UI", "YUP"],
   },
 ]
 
