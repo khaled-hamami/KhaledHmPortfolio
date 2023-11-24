@@ -74,7 +74,7 @@ const projectData = [
     about: "IEEE Club Event Manager",
     image: EventProIEEE,
     smallImage: EventProIEEEsmall,
-    link: "event-pro-ieee.vercel.app",
+    link: "https://event-pro-ieee.vercel.app",
     sourceCode: "https://github.com/khaled-hamami/Event-Pro-IEEE",
     description: ["FRAMER MOTION", "REACT", "REACT FORM HOOK", "MATERIAL-UI", "YUP"],
   },
