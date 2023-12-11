@@ -70,7 +70,7 @@ const projectData = [
     description: ["REACT", "REDUX | TOOLKIT", "JOTAI", "MATERIAL-UI", "TS-PARTICLES"],
   },
   {
-    title: "PORTFOLIO",
+    title: "Event Pro IEEE",
     about: "IEEE Club Event Manager",
     image: EventProIEEE,
     smallImage: EventProIEEEsmall,

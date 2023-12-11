@@ -6,11 +6,14 @@ import reactCertif from "../assets/images/certif2.webp"
 import canvaCertif from "../assets/images/certif3.webp"
 import googleCertifSmall from "../assets/images/certif1-small.webp"
 import googleCertifSmall2 from "../assets/images/certif4-small.webp"
+import hakathonCertif from "../assets/images/certif5.webp"
+import hakathonCertifSmall from "../assets/images/certif5-small.webp"
 import reactCertifSmall from "../assets/images/certif2-small.webp"
 import canvaCertifSmall from "../assets/images/certif3-small.webp"
 import googleAvatar from "../assets/avatars/google.webp"
 import ibmAvatar from "../assets/avatars/ibm.webp"
 import awsAvatar from "../assets/avatars/aws.webp"
+import otcAvatar from "../assets/avatars/otc.webp"
 import canvaAvatar from "../assets/avatars/canva.webp"
 import { useEffect } from "react"
 
@@ -56,6 +59,19 @@ const CertificateData = [
     verifiable: true,
     postedOnLinked: true,
     avatar: googleAvatar,
+  },
+  {
+    title: "ORANGE",
+    image: hakathonCertif,
+    smallImage: hakathonCertifSmall,
+    date: "12/09/2023",
+    about: "Hakathon Wining Certificate",
+    link: "#",
+    linkedIn: "#",
+    platform: "linkedin",
+    verifiable: false,
+    postedOnLinked: true,
+    avatar: otcAvatar,
   },
   {
     title: "CANVA",
