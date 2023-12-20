@@ -7,10 +7,13 @@ import smallHomeImage2 from "../assets/images/Home-image-small-2.webp"
 import handleDownloadClick from "../utils/DownloadResume"
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
+
 export default function Home() {
+
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
+  
   const navigate = useNavigate()
   //lazy load image with blured background
   const [highResHomeImage1, setHighResHomeImage1] = useState(null)
