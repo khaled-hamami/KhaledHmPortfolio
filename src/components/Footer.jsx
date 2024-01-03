@@ -33,7 +33,7 @@ export default function Footer() {
               fontSize: { xs: ".7rem", sm: ".8rem", md: ".9rem", lg: "1rem" },
             }}
           >
-            Copyright 2023 &copy; Khaled Hammami
+            Copyright {new Date().getFullYear()} &copy; Khaled Hammami
           </Typography>
         </Box>
 

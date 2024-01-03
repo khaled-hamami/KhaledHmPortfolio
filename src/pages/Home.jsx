@@ -5,15 +5,15 @@ import homeImage2 from "../assets/images/Home-image-2.webp"
 import smallHomeImage1 from "../assets/images/Home-image-small-1.webp"
 import smallHomeImage2 from "../assets/images/Home-image-small-2.webp"
 import handleDownloadClick from "../utils/DownloadResume"
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { useNavigate } from "react-router-dom"
+import { motion, useScroll, useTransform } from "framer-motion"
 
 export default function Home() {
-
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
-  
+
   const navigate = useNavigate()
   //lazy load image with blured background
   const [highResHomeImage1, setHighResHomeImage1] = useState(null)
@@ -32,6 +32,13 @@ export default function Home() {
       setHighResHomeImage2(homeImg2.src)
     }
   }, [homeImage1, homeImage2])
+
+  const ref = useRef(null)
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: [".7 1", "5 1"],
+  })
+  const scaleProgress = useTransform(scrollYProgress, [0, 1], [0.8, 1])
 
   return (
     <Box
@@ -54,95 +61,121 @@ export default function Home() {
         }}
       >
         <Box width="80%">
-          <Typography
-            sx={{
-              fontSize: { xs: "2rem", md: "3rem" },
-              color: "contrast.main",
-              letterSpacing: "-1px",
-            }}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9, translateX: -100 }}
+            animate={{ opacity: 1, scale: 1, translateX: 0 }}
+            transition={{ duration: 0.5 }}
           >
-            Hello!
-          </Typography>
-          <Typography
-            sx={{
-              fontSize: { xs: "2rem", md: "3rem" },
-              color: "contrast.main",
-              display: "inline-block",
-              letterSpacing: "-1px",
-            }}
+            <Typography
+              sx={{
+                fontSize: { xs: "2rem", md: "3rem" },
+                color: "contrast.main",
+                letterSpacing: "-1px",
+              }}
+            >
+              Hello!
+            </Typography>
+            <Typography
+              sx={{
+                fontSize: { xs: "2rem", md: "3rem" },
+                color: "contrast.main",
+                display: "inline-block",
+                letterSpacing: "-1px",
+              }}
+            >
+              I'M&nbsp;
+            </Typography>
+            <Typography
+              sx={{
+                fontSize: { xs: "2rem", md: "3rem" },
+                color: "primary.main",
+                display: "inline-block",
+                letterSpacing: "-1px",
+              }}
+            >
+              KHALED HAMMAMI
+            </Typography>
+            <br />
+            <br />
+            <br />
+            <Typography
+              component="div"
+              sx={{
+                fontSize: { xs: "2rem", md: "3rem" },
+                color: "primary.main",
+              }}
+            >
+              <AutoTyper />
+            </Typography>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9, translateX: -100 }}
+            animate={{ opacity: 1, scale: 1, translateX: 0 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
           >
-            I'M&nbsp;
-          </Typography>
-          <Typography
-            sx={{
-              fontSize: { xs: "2rem", md: "3rem" },
-              color: "primary.main",
-              display: "inline-block",
-              letterSpacing: "-1px",
-            }}
-          >
-            KHALED HAMMAMI
-          </Typography>
-          <br />
-          <br />
-          <br />
-          <Typography
-            component="div"
-            sx={{
-              fontSize: { xs: "2rem", md: "3rem" },
-              color: "primary.main",
-            }}
-          >
-            <AutoTyper />
-          </Typography>
-          <Typography
-            variant="h6"
-            sx={{
-              mt: "5rem",
-              color: "contrast.main",
-              fontSize: { xs: "1.1rem", md: "1.3rem" },
-              textShadow: "none",
-              fontWeight: "600",
-            }}
-          >
-            As a Full Stack MERN Developer and IT student, I am dedicated to delivering high-quality
-            web solutions that meet the evolving demands of the digital landscape.
-          </Typography>
+            <Typography
+              variant="h6"
+              sx={{
+                mt: "5rem",
+                color: "contrast.main",
+                fontSize: { xs: "1.1rem", md: "1.3rem" },
+                textShadow: "none",
+                fontWeight: "600",
+              }}
+            >
+              As a Full Stack MERN Developer and IT student, I am dedicated to delivering
+              high-quality web solutions that meet the evolving demands of the digital landscape.
+            </Typography>
+          </motion.div>
           <Box
             sx={{
               display: "flex",
+              flexDirection: { xs: "column", sm: "row" },
               gap: "1rem",
-              mt: "1rem",
+              alignItems: "center",
+              mt: "3rem",
             }}
           >
-            <Button
-              className="home-button"
-              variant="contained"
-              sx={{
-                fontSize: { xs: ".75rem", sm: ".95rem" },
-                width: "180px",
-                textShadow: "none",
-                "&:hover": { color: "contrast.reverse", scale: "1.02" },
-              }}
-              onClick={() => {
-                navigate("/about#form")
-              }}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, translateY: -100 }}
+              animate={{ opacity: 1, scale: 1, translateY: 0 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
             >
-              Contact me
-            </Button>
-            <Button
-              className="home-button"
-              variant="contained"
-              sx={{
-                fontSize: { xs: ".75rem", sm: ".95rem" },
-                width: "180px",
-                textShadow: "none",
-                "&:hover": { color: "contrast.reverse", scale: "1.02" },
-              }}
-              onClick={() => handleDownloadClick()}
+              <Button
+                className="home-button"
+                variant="contained"
+                sx={{
+                  fontSize: { xs: ".75rem", sm: ".95rem" },
+                  width: "180px",
+                  textShadow: "none",
+                  "&:hover": { color: "contrast.reverse", scale: "1.02" },
+                }}
+                onClick={() => {
+                  navigate("/about#form")
+                }}
+              >
+                Contact me
+              </Button>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, translateX: -100 }}
+              animate={{ opacity: 1, scale: 1, translateX: 0 }}
+              transition={{ duration: 0.5, delay: 0.8 }}
             >
-              Download my cv
-            </Button>
+              <Button
+                className="home-button"
+                variant="contained"
+                sx={{
+                  fontSize: { xs: ".75rem", sm: ".95rem" },
+                  width: "180px",
+                  textShadow: "none",
+                  "&:hover": { color: "contrast.reverse", scale: "1.02" },
+                }}
+                onClick={() => handleDownloadClick()}
+              >
+                Download my cv
+              </Button>
+            </motion.div>
           </Box>
         </Box>
         <Box
@@ -151,18 +184,25 @@ export default function Home() {
             height: { xs: "250px", sm: "300px", md: "500px", lg: "650px" },
           }}
         >
-          <img
-            className="home-image"
-            width="100%"
-            height="100%"
-            src={highResHomeImage1 || smallHomeImage1}
-            alt="pc image"
-            loading="lazy"
-            style={{
-              filter: highResHomeImage1 != null ? "blur(0px)" : "blur(5px) ",
-              transition: "filter 0.8s ease, opaccity 0.8s ease",
-            }}
-          />
+          <motion.div
+            initial={{ opacity: 0.5, scale: 0.8, translateX: 300 }}
+            animate={{ opacity: 1, scale: 1, translateX: 0 }}
+            transition={{ duration: 1 }}
+            style={{ width: "100%", height: "100%" }}
+          >
+            <img
+              className="home-image"
+              width="100%"
+              height="100%"
+              src={highResHomeImage1 || smallHomeImage1}
+              alt="pc image"
+              loading="lazy"
+              style={{
+                filter: highResHomeImage1 != null ? "blur(0px)" : "blur(5px) ",
+                transition: "filter 0.8s ease, opaccity 0.8s ease",
+              }}
+            />
+          </motion.div>
         </Box>
       </Container>
       <Container
@@ -203,32 +243,43 @@ export default function Home() {
           }}
         >
           <Box mb="100px">
-            <Typography
-              variant="h4"
-              sx={{
-                color: "contrast.main",
-                mt: "3.5rem",
-                fontSize: { xs: "2rem", md: "3rem" },
-                letterSpacing: "-1px",
+            <motion.div style={{ scale: scaleProgress, opacity: scrollYProgress }}>
+              <Typography
+                ref={ref}
+                variant="h4"
+                sx={{
+                  color: "contrast.main",
+                  mt: "3.5rem",
+                  fontSize: { xs: "2rem", md: "3rem" },
+                  letterSpacing: "-1px",
+                }}
+              >
+                Get to know<span style={{ color: "#be33f5" }}> me</span>
+              </Typography>
+            </motion.div>
+            <motion.div
+              style={{
+                scale: scaleProgress,
+                opacity: scrollYProgress,
               }}
             >
-              Get to know<span style={{ color: "#be33f5" }}> me</span>
-            </Typography>
-            <Typography
-              variant="h6"
-              sx={{
-                mt: "2rem",
-                color: "contrast.main",
-                fontSize: { xs: "1.1rem", md: "1.3rem" },
-                textShadow: "none",
-                fontWeight: "600",
-              }}
-            >
-              Hello! I'm Khaled Hammami <br /> a 2nd year IT student at ISET Nabeul. Amazed by new
-              technologies, I'm on a path to become a professional developer. Also my fascination
-              with computer science led me to become part of an amazing communities. <br />
-              As I continue to learn and grow, I will further contribute to the world of technology
-            </Typography>
+              <Typography
+                variant="h6"
+                sx={{
+                  mt: "2rem",
+                  color: "contrast.main",
+                  fontSize: { xs: "1.1rem", md: "1.3rem" },
+                  textShadow: "none",
+                  fontWeight: "600",
+                }}
+              >
+                Hello! I'm Khaled Hammami <br /> a 2nd year IT student at ISET Nabeul. Amazed by new
+                technologies, I'm on a path to become a professional developer. Also my fascination
+                with computer science led me to become part of an amazing communities. <br />
+                As I continue to learn and grow, I will further contribute to the world of
+                technology
+              </Typography>
+            </motion.div>
           </Box>
           <Box
             sx={{
