@@ -39,6 +39,11 @@ export default function Home() {
     offset: [".7 1", "5 1"],
   })
   const scaleProgress = useTransform(scrollYProgress, [0, 1], [0.8, 1])
+  const xProgress = useTransform(scrollYProgress, [0, 1], ["100%", "0%"])
+  useEffect(() => {
+    console.log(scrollYProgress.current)
+    console.log(scaleProgress)
+  }, [scaleProgress, scrollYProgress])
 
   return (
     <Box
@@ -285,15 +290,21 @@ export default function Home() {
             sx={{
               width: { xs: "280px", sm: "1200px", md: "1200px", lg: "1500px" },
               height: { xs: "235px", sm: "250px", md: "300px", lg: "450px" },
+
+              overflow: { xs: "hidden", sm: "visible" },
             }}
           >
-            <img
+            <motion.img
               width="100%"
               height="100%"
               src={highResHomeImage2 || smallHomeImage2}
               alt="pc image"
               loading="lazy"
-              style={{ filter: highResHomeImage2 != null ? "blur(0px)" : "blur(5px)" }}
+              style={{
+                filter: highResHomeImage2 != null ? "blur(0px)" : "blur(5px)",
+                y: xProgress,
+                scale: scaleProgress,
+              }}
             />
           </Box>
         </Box>

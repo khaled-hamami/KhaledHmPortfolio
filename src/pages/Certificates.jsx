@@ -16,6 +16,7 @@ import awsAvatar from "../assets/avatars/aws.webp"
 import otcAvatar from "../assets/avatars/otc.webp"
 import canvaAvatar from "../assets/avatars/canva.webp"
 import { useEffect } from "react"
+import { motion } from "framer-motion"
 
 const CertificateData = [
   {
@@ -112,7 +113,10 @@ export default function Certificates() {
         <Box width="100%" display="flex" flexWrap="wrap" justifyContent="space-evenly">
           {CertificateData.map((certificate, index) => (
             /*the div is for isolating the state so it deosnt become shared*/
-            <div
+            <motion.div
+              initial={{ opacity: 0, translateX: index % 2 == 0 ? -100 : 100 }}
+              animate={{ opacity: 1, translateX: 0, transition: { delay: index * 0.05 + 0.5 } }}
+              transition={{ duration: 0.5 }}
               key={index}
               style={{
                 marginBottom: {
@@ -120,6 +124,7 @@ export default function Certificates() {
                   sm: "60px",
                   md: "70px",
                 },
+                overflow:'hidden'
               }}
             >
               <CertificateCard
@@ -135,7 +140,7 @@ export default function Certificates() {
                 postedOnLinked={certificate.postedOnLinked}
                 avatar={certificate.avatar}
               />
-            </div>
+            </motion.div>
           ))}
         </Box>
       </Container>

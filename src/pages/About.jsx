@@ -30,6 +30,7 @@ import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
 import contact from "../apis/contact"
 import Popup from "../utils/Popup"
+import { motion } from "framer-motion"
 
 const Skills = {
   react: react,
@@ -125,17 +126,23 @@ export default function About() {
           maxWidth="xxl"
           sx={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}
         >
-          {Object.keys(Skills).map((skill) => (
-            <Tilt
-              perspective={1000}
-              glareEnable={false}
-              tiltReverse={true}
-              glareColor="transparent"
-              style={{ borderRadius: "20px" }}
+          {Object.keys(Skills).map((skill, index) => (
+            <motion.div
+              initial={{ opacity: 0, translateX: index % 2 == 0 ? -100 : 100 }}
+              animate={{ opacity: 1, translateX: 0, transition: { delay: index * 0.05 + 0.2 } }}
+              transition={{ duration: 0.5 }}
               key={skill}
             >
-              <AboutSkillCard img={Skills[skill]} title={skill} />
-            </Tilt>
+              <Tilt
+                perspective={1000}
+                glareEnable={false}
+                tiltReverse={true}
+                glareColor="transparent"
+                style={{ borderRadius: "20px" }}
+              >
+                <AboutSkillCard img={Skills[skill]} title={skill} />
+              </Tilt>
+            </motion.div>
           ))}
         </Container>
       </fieldset>

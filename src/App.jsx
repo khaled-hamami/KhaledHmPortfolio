@@ -20,6 +20,7 @@ import { ThemeProvider } from "@emotion/react"
 import { Box, Skeleton } from "@mui/material"
 import ResumeSkeleton from "./Skeletons/ResumeSkeleton"
 import CardSkeleton from "./Skeletons/CardSkeleton"
+import { motion } from "framer-motion"
 
 export default function App() {
   const dispatch = useDispatch()
@@ -59,7 +60,15 @@ export default function App() {
         <Router>
           <Navbar />
 
-          {settingsVisible && <Settings />}
+          {settingsVisible && (
+            <motion.div
+              initial={{ scale: .3, opacity: 0, translateY: -300 }}
+              animate={{ scale: 1, opacity: 1, translateY: 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              <Settings />
+            </motion.div>
+          )}
           <Routes>
             <Route
               path="/"

@@ -13,6 +13,7 @@ import PythonSmall from "../assets/images/Python-small.webp"
 import PortfolioSmall from "../assets/images/Portfolio-small.webp"
 import EventProIEEEsmall from "../assets/images/EventProIEEEsmall.webp"
 import EventProIEEE from "../assets/images/EventProIEEE.webp"
+import { motion } from "framer-motion"
 
 const projectData = [
   {
@@ -104,15 +105,18 @@ export default function ProjectsPage() {
         <br />
         <Box width="100%" display="flex" flexWrap="wrap" justifyContent="space-evenly">
           {projectData.map((project, index) => (
-            /*the div is for isolating the state so it desnt becoe shared*/
-            <div
+            <motion.div
               key={index}
+              initial={{ opacity: 0, translateX: index % 2 == 0 ? -100 : 100 }}
+              animate={{ opacity: 1, translateX: 0, transition: { delay: index * 0.05 + 0.2 } }}
+              transition={{ duration: 0.5 }}
               style={{
                 marginBottom: {
                   xs: "50px",
                   sm: "60px",
                   md: "70px",
                 },
+                overflow: "hidden",
               }}
             >
               <ProjectCard
@@ -124,7 +128,7 @@ export default function ProjectsPage() {
                 sourceCode={project.sourceCode}
                 smallImage={project.smallImage}
               />
-            </div>
+            </motion.div>
           ))}
         </Box>
       </Container>

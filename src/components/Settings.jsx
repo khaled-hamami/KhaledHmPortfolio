@@ -54,7 +54,7 @@ export default function Settings() {
     name: "color-radio-button-demo",
     inputProps: { "aria-label": item },
   })
-  
+
   const handleBehaviour = () => {
     selectedValue === "push"
       ? dispatch(setParticlesBehaviourTrue())

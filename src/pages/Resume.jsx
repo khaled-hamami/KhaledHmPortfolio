@@ -3,6 +3,7 @@ import handleDownloadClick from "../utils/DownloadResume"
 import cv from "../assets/images/cv.webp"
 import smallCv from "../assets/images/cv-small.webp"
 import { useEffect, useState } from "react"
+import { motion } from "framer-motion"
 
 export default function Resume() {
   useEffect(() => {
@@ -51,7 +52,10 @@ export default function Resume() {
         >
           Download my Resume
         </Button>
-        <img
+        <motion.img
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
           src={highResImage || smallCv}
           width="80%"
           loading="lazy"
