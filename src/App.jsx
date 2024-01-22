@@ -17,7 +17,7 @@ import RouteError from "./pages/RouteError"
 //ThemeProvider must be imported before Box or it will cause some issues
 import Loader from "./pages/Loader"
 import { ThemeProvider } from "@emotion/react"
-import { Box, Skeleton } from "@mui/material"
+import { Box } from "@mui/material"
 import ResumeSkeleton from "./Skeletons/ResumeSkeleton"
 import CardSkeleton from "./Skeletons/CardSkeleton"
 import { motion } from "framer-motion"
@@ -48,7 +48,11 @@ export default function App() {
     <Loader />
   ) : (
     <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
-      {particlesVisible && <ParticlesBakground mode={darkMode} />}
+      {particlesVisible && (
+        <Suspense>
+          <ParticlesBakground mode={darkMode} />
+        </Suspense>
+      )}
       <Box
         className="background"
         sx={{
@@ -62,7 +66,7 @@ export default function App() {
 
           {settingsVisible && (
             <motion.div
-              initial={{ scale: .3, opacity: 0, translateY: -300 }}
+              initial={{ scale: 0.3, opacity: 0, translateY: -300 }}
               animate={{ scale: 1, opacity: 1, translateY: 0 }}
               transition={{ duration: 0.3 }}
             >

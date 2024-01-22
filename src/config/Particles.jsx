@@ -10,7 +10,7 @@ export default function ParticlesBakground({ mode }) {
     await loadSlim(engine)
   }, [])
 
-  return (
+  return (  
     <Particles
       id="tsparticles"
       init={particlesInit}
