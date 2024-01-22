@@ -21,17 +21,17 @@ export default function Home() {
 
   useEffect(() => {
     // Load the high-resolution image asynchronously
-    const homeImg1 = new Image()
+    // const homeImg1 = new Image()
     const homeImg2 = new Image()
-    homeImg1.src = homeImage1
+    // homeImg1.src = homeImage1
     homeImg2.src = homeImage2
-    homeImg1.onload = () => {
-      setHighResHomeImage1(homeImg1.src)
-    }
+    // homeImg1.onload = () => {
+    //   setHighResHomeImage1(homeImg1.src)
+    // }
     homeImg2.onload = () => {
       setHighResHomeImage2(homeImg2.src)
     }
-  }, [homeImage1, homeImage2])
+  }, [/*homeImage1,*/ homeImage2])
 
   const ref = useRef(null)
   const { scrollYProgress } = useScroll({
@@ -40,10 +40,6 @@ export default function Home() {
   })
   const scaleProgress = useTransform(scrollYProgress, [0, 1], [0.8, 1])
   const xProgress = useTransform(scrollYProgress, [0, 1], ["100%", "0%"])
-  useEffect(() => {
-    console.log(scrollYProgress.current)
-    console.log(scaleProgress)
-  }, [scaleProgress, scrollYProgress])
 
   return (
     <Box
@@ -199,12 +195,13 @@ export default function Home() {
               className="home-image"
               width="100%"
               height="100%"
-              src={highResHomeImage1 || smallHomeImage1}
+              // src={highResHomeImage1 || smallHomeImage1}
+              src={homeImage1}
               alt="pc image"
               loading="lazy"
               style={{
-                filter: highResHomeImage1 != null ? "blur(0px)" : "blur(5px) ",
-                transition: "filter 0.8s ease, opaccity 0.8s ease",
+                // filter: highResHomeImage1 != null ? "blur(0px)" : "blur(5px) ",
+                transition: "filter 0.8s ease, opacity 0.8s ease",
               }}
             />
           </motion.div>
