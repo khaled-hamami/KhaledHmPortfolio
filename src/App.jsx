@@ -21,6 +21,7 @@ import { Box } from "@mui/material"
 import ResumeSkeleton from "./Skeletons/ResumeSkeleton"
 import CardSkeleton from "./Skeletons/CardSkeleton"
 import { motion } from "framer-motion"
+import { Suspense } from "react"
 
 export default function App() {
   const dispatch = useDispatch()
