@@ -4,25 +4,21 @@ import { Button, Container, IconButton, TextField, Typography } from "@mui/mater
 //Importing logo images
 import react from "../assets/Logos/react.webp"
 import mongodbLogo from "../assets/Logos/mongodb.webp"
-import cLogo from "../assets/Logos/c.webp"
-import canvaLogo from "../assets/Logos/canva.webp"
 import cssLogo from "../assets/Logos/css.webp"
-import dockerLogo from "../assets/Logos/docker.webp"
 import expressLogo from "../assets/Logos/express.webp"
 import gitLogo from "../assets/Logos/git.webp"
 import htmlLogo from "../assets/Logos/html.webp"
-import javaLogo from "../assets/Logos/java.webp"
-import jiraLogo from "../assets/Logos/jira.webp"
 import jsLogo from "../assets/Logos/js.webp"
-import linuxLogo from "../assets/Logos/linux.webp"
-import mongooseLogo from "../assets/Logos/mongoose.webp"
+import djangoLogo from "../assets/Logos/django.webp"
 import muiLogo from "../assets/Logos/mui.webp"
 import nodeLogo from "../assets/Logos/node.webp"
-import oracleLogo from "../assets/Logos/oracle.webp"
-import pythonLogo from "../assets/Logos/python.webp"
 import reduxLogo from "../assets/Logos/redux.webp"
 import typescriptLogo from "../assets/Logos/typescript.webp"
-import vscodeLogo from "../assets/Logos/vscode.webp"
+import nextjsLogo from "../assets/Logos/nextjs.webp"
+import graphqlLogo from "../assets/Logos/graphql.webp"
+import shadcnLogo from "../assets/Logos/shadcn.webp"
+import tailwindLogo from "../assets/Logos/tailwind.webp"
+
 import AboutSkillCard from "../components/AboutSkillCard"
 import Tilt from "react-parallax-tilt"
 import contactShema from "../shemas/contactSchema"
@@ -33,27 +29,22 @@ import Popup from "../utils/Popup"
 import { motion } from "framer-motion"
 
 const Skills = {
-  react: react,
-  Mongodb: mongodbLogo,
-  Node: nodeLogo,
-  Express: expressLogo,
-  Mui: muiLogo,
-  Javascript: jsLogo,
-  Typescript: typescriptLogo,
-  Java: javaLogo,
-  Python: pythonLogo,
-  C: cLogo,
-  Css: cssLogo,
-  Canva: canvaLogo,
-  Html: htmlLogo,
-  Oracle: oracleLogo,
-  Mongoose: mongooseLogo,
-  Redux: reduxLogo,
-  Git: gitLogo,
-  Docker: dockerLogo,
-  Jira: jiraLogo,
-  VsCode: vscodeLogo,
-  Linux: linuxLogo,
+  "react js": react,
+  "Mongodb": mongodbLogo,
+  "Node js": nodeLogo,
+  "Express js": expressLogo,
+  "Next js": nextjsLogo,
+  "Redux": reduxLogo,
+  "Graphql": graphqlLogo,
+  "Django": djangoLogo,
+  "Material-UI": muiLogo,
+  "Shadcn-UI": shadcnLogo,
+  "tailwind css": tailwindLogo,
+  "Javascript": jsLogo,
+  "Typescript": typescriptLogo,
+  "Html": htmlLogo,
+  "Css": cssLogo,
+  "Git": gitLogo,
 }
 export default function About() {
   useEffect(() => {
