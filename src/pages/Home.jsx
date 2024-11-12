@@ -1,4 +1,4 @@
-import { Box, Button, Container, Link, Typography } from "@mui/material"
+import { Box, Button, Container, Typography } from "@mui/material"
 import { AutoTyper } from "../utils/AutoTyper"
 import homeImage1 from "../assets/images/Home-image-1.webp"
 import homeImage2 from "../assets/images/Home-image-2.webp"
@@ -21,17 +21,17 @@ export default function Home() {
 
   useEffect(() => {
     // Load the high-resolution image asynchronously
-    // const homeImg1 = new Image()
+    const homeImg1 = new Image()
     const homeImg2 = new Image()
-    // homeImg1.src = homeImage1
+    homeImg1.src = homeImage1
     homeImg2.src = homeImage2
-    // homeImg1.onload = () => {
-    //   setHighResHomeImage1(homeImg1.src)
-    // }
+    homeImg1.onload = () => {
+      setHighResHomeImage1(homeImg1.src)
+    }
     homeImg2.onload = () => {
       setHighResHomeImage2(homeImg2.src)
     }
-  }, [/*homeImage1,*/ homeImage2])
+  }, [homeImage1, homeImage2])
 
   const ref = useRef(null)
   const { scrollYProgress } = useScroll({
@@ -84,7 +84,7 @@ export default function Home() {
                 letterSpacing: "-1px",
               }}
             >
-              I'M&nbsp;
+              I&apos;M&nbsp;
             </Typography>
             <Typography
               sx={{
@@ -195,12 +195,11 @@ export default function Home() {
               className="home-image"
               width="100%"
               height="100%"
-              // src={highResHomeImage1 || smallHomeImage1}
-              src={homeImage1}
+              src={highResHomeImage1 || smallHomeImage1}
               alt="pc image"
               loading="lazy"
               style={{
-                // filter: highResHomeImage1 != null ? "blur(0px)" : "blur(5px) ",
+                filter: highResHomeImage1 != null ? "blur(0px)" : "blur(5px) ",
                 transition: "filter 0.8s ease, opacity 0.8s ease",
               }}
             />
@@ -275,8 +274,8 @@ export default function Home() {
                   fontWeight: "600",
                 }}
               >
-                Hello! I'm Khaled Hammami <br /> a 2nd year IT student at ISET Nabeul. Amazed by new
-                technologies, I'm on a path to become a professional developer. Also my fascination
+                Hello! I&apos;m Khaled Hammami <br /> a 2nd year IT student at ISET Nabeul. Amazed by new
+                technologies, I&apos;m on a path to become a professional developer. Also my fascination
                 with computer science led me to become part of an amazing communities. <br />
                 As I continue to learn and grow, I will further contribute to the world of
                 technology
