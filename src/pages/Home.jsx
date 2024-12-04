@@ -124,8 +124,7 @@ export default function Home() {
                 fontWeight: "600",
               }}
             >
-              As a Full Stack MERN Developer and IT student, I am dedicated to delivering
-              high-quality web solutions that meet the evolving demands of the digital landscape.
+              Hello! I&apos;m Khaled Hammami, a third-year IT student at ISET Nabeul, specializing in information systems development. Passionate about emerging technologies, I am committed to advancing my skills and building a career as a professional developer.
             </Typography>
           </motion.div>
           <Box
@@ -274,11 +273,7 @@ export default function Home() {
                   fontWeight: "600",
                 }}
               >
-                Hello! I&apos;m Khaled Hammami <br /> a 2nd year IT student at ISET Nabeul. Amazed by new
-                technologies, I&apos;m on a path to become a professional developer. Also my fascination
-                with computer science led me to become part of an amazing communities. <br />
-                As I continue to learn and grow, I will further contribute to the world of
-                technology
+              My engagement with tech communities reflects my dedication to continuous learning and contributing to innovation in the dynamic field of technology.
               </Typography>
             </motion.div>
           </Box>

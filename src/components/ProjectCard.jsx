@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react"
+/* eslint-disable react/prop-types */
+import { useEffect, useState } from "react"
 import { styled } from "@mui/material/styles"
 import Card from "@mui/material/Card"
 import CardHeader from "@mui/material/CardHeader"
@@ -20,7 +21,7 @@ import { useSelector } from "react-redux"
 import "../styles/index.css"
 
 const ExpandMore = styled((props) => {
-  const { expand, ...other } = props
+  const { ...other } = props
   return <IconButton {...other} />
 })(({ theme, expand }) => ({
   transform: !expand ? "rotate(0deg)" : "rotate(180deg)",
@@ -50,6 +51,7 @@ export default function ProjectCard({
     // Load the high-resolution image asynchronously
     const img = new Image()
     img.src = image
+
     img.onload = () => {
       setHighResImage(img.src)
       setProjectImageLoaded(true)
@@ -77,6 +79,7 @@ export default function ProjectCard({
         borderRadius: "10px",
         padding: "20px",
         marginBottom: "65px",
+        marginX: "5px",
         position: "relative",
         top: "50%",
         left: "50%",
@@ -144,6 +147,7 @@ export default function ProjectCard({
           }}
           href={link}
           target="_blank"
+          disabled={link === ""}
         >
           VISIT
         </Button>
@@ -159,8 +163,13 @@ export default function ProjectCard({
           }}
           endIcon={<ShareIcon />}
           onClick={() => {
-            copyToClipboard(link)
-            setOpen(true)
+            if (!link) {
+              copyToClipboard(sourceCode)
+              setOpen(true)
+            } else {
+              copyToClipboard(link)
+              setOpen(true)
+            }
           }}
         >
           SHARE
