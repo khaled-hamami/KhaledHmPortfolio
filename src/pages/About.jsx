@@ -18,7 +18,7 @@ import nextjsLogo from "../assets/Logos/nextjs.webp"
 import graphqlLogo from "../assets/Logos/graphql.webp"
 import shadcnLogo from "../assets/Logos/shadcn.webp"
 import tailwindLogo from "../assets/Logos/tailwind.webp"
-import aspcore from "../assets/Logos/aspCore.webp"
+import netasp from "../assets/Logos/netasp.webp"
 import flutter from "../assets/Logos/flutter.webp"
 
 import AboutSkillCard from "../components/AboutSkillCard"
@@ -38,7 +38,7 @@ const Skills = {
   "Next js": nextjsLogo,
   "Redux": reduxLogo,
   "Graphql": graphqlLogo,
-  "Asp.net core": aspcore,
+  "Asp.net core": netasp,
   "Flutter": flutter,
   "Django": djangoLogo,
   "Material-UI": muiLogo,
