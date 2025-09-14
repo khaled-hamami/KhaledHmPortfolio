@@ -19,7 +19,7 @@ import graphqlLogo from "../assets/Logos/graphql.webp"
 import shadcnLogo from "../assets/Logos/shadcn.webp"
 import tailwindLogo from "../assets/Logos/tailwind.webp"
 import aspcore from "../assets/Logos/aspcore.webp"
-import flutter from "../assets/Logos/flutter.webp"
+ import flutter from "../assets/Logos/flutter.webp"
 
 import AboutSkillCard from "../components/AboutSkillCard"
 import Tilt from "react-parallax-tilt"
