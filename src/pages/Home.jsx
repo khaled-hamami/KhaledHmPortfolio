@@ -124,7 +124,7 @@ export default function Home() {
                 fontWeight: "600",
               }}
             >
-              Hello! I&apos;m Khaled Hammami, a third-year IT student at ISET Nabeul, specializing in information systems development. Passionate about emerging technologies, I am committed to advancing my skills and building a career as a professional developer.
+              Hello! I&apos;m Khaled Hammami, an IT Graduate from ISET Nabeul, specializing in information systems development. Passionate about emerging technologies, I am committed to advancing my skills and building a career as a professional developer.
             </Typography>
           </motion.div>
           <Box

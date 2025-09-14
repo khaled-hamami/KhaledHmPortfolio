@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import  { useEffect, useState } from "react"
 import { Button, Container, TextField, Typography } from "@mui/material"
 
 //Importing logo images
@@ -18,6 +18,8 @@ import nextjsLogo from "../assets/Logos/nextjs.webp"
 import graphqlLogo from "../assets/Logos/graphql.webp"
 import shadcnLogo from "../assets/Logos/shadcn.webp"
 import tailwindLogo from "../assets/Logos/tailwind.webp"
+import aspcore from "../assets/Logos/aspcore.webp"
+import flutter from "../assets/Logos/flutter.webp"
 
 import AboutSkillCard from "../components/AboutSkillCard"
 import Tilt from "react-parallax-tilt"
@@ -36,6 +38,8 @@ const Skills = {
   "Next js": nextjsLogo,
   "Redux": reduxLogo,
   "Graphql": graphqlLogo,
+  "Asp.net core": aspcore,
+  "Flutter": flutter,
   "Django": djangoLogo,
   "Material-UI": muiLogo,
   "Shadcn-UI": shadcnLogo,
