@@ -24,6 +24,10 @@ import { motion } from "framer-motion"
 import { Suspense } from "react"
 
 export default function App() {
+  // Drawer state
+  const [drawerOpen, setDrawerOpen] = useState(false)
+  const handleDrawerOpen = () => setDrawerOpen(true)
+  const handleDrawerClose = () => setDrawerOpen(false)
   const dispatch = useDispatch()
   //loader
   const [loading, setLoading] = useState(true)
@@ -63,7 +67,7 @@ export default function App() {
         }}
       >
         <Router>
-          <Navbar />
+          <Navbar onDrawerOpen={handleDrawerOpen} />
 
           {settingsVisible && (
             <motion.div
@@ -131,7 +135,7 @@ export default function App() {
             <Route path="/*" Component={RouteError} />
           </Routes>
           <Footer />
-          <Drawer />
+          <Drawer open={drawerOpen} onClose={handleDrawerClose} />
         </Router>
       </Box>
     </ThemeProvider>

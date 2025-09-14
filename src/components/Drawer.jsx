@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+// import { useState } from "react" // No longer needed
 import PropTypes from "prop-types"
 import { Global } from "@emotion/react"
 import { styled } from "@mui/material/styles"
@@ -18,25 +18,9 @@ const StyledBox = styled(Box)(({ theme }) => ({
   backgroundColor: theme.palette.primary.contrastReverse,
 }))
 
-const Puller = styled(Box)(({ theme }) => ({
-  width: "100px",
-  height: 8,
-  backgroundColor: theme.palette.primary.light,
-  borderRadius: 3,
-  position: "absolute",
-  top: 1,
-  left: "calc(50% - 60px)",
-}))
 
 export default function Drawer(props) {
-  const { window } = props
-  const [open, setOpen] = useState(false)
-
-  const toggleDrawer = (newOpen) => () => {
-    setOpen(newOpen)
-  }
-
-  // This is used only for the example
+  const { window, open, onClose } = props
   const container = window !== undefined ? () => window().document.body : undefined
   return (
     <Root>
@@ -49,16 +33,15 @@ export default function Drawer(props) {
           },
         }}
       />
-
       <SwipeableDrawer
         sx={{ display: { sm: "none" } }}
         container={container}
         anchor="bottom"
         open={open}
-        onClose={toggleDrawer(false)}
-        onOpen={toggleDrawer(true)}
-        swipeAreaWidth={drawerBleeding}
-        disableSwipeToOpen={false}
+        onClose={onClose}
+        onOpen={onClose}
+        swipeAreaWidth={0} // Disable swipe-to-open
+        disableSwipeToOpen={true}
         ModalProps={{
           keepMounted: true,
         }}
@@ -73,8 +56,8 @@ export default function Drawer(props) {
             right: 0,
             left: 0,
           }}
-          >
-          <Puller className="glow-effect infinte-loop" onClick={() => setOpen(true)}  />
+        >
+          {/* Remove Puller for swipe-up */}
         </StyledBox>
         <StyledBox
           sx={{
@@ -86,64 +69,24 @@ export default function Drawer(props) {
             flexDirection: "column",
           }}
         >
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              width: "100%",
-              height: "100%",
-            }}
-          >
-            <CustomNavLink to="/">HOME</CustomNavLink>
+          <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", width: "100%", height: "100%" }}>
+            <CustomNavLink to="/" onClick={onClose}>HOME</CustomNavLink>
           </Box>
           <hr />
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              width: "100%",
-              height: "100%",
-            }}
-          >
-            <CustomNavLink to="/projects">PROJECTS</CustomNavLink>
+          <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", width: "100%", height: "100%" }}>
+            <CustomNavLink to="/projects" onClick={onClose}>PROJECTS</CustomNavLink>
           </Box>
           <hr />
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              width: "100%",
-              height: "100%",
-            }}
-          >
-            <CustomNavLink to="/certificates">CERTIFICATES</CustomNavLink>
+          <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", width: "100%", height: "100%" }}>
+            <CustomNavLink to="/certificates" onClick={onClose}>CERTIFICATES</CustomNavLink>
           </Box>
           <hr />
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              width: "100%",
-              height: "100%",
-            }}
-          >
-            <CustomNavLink to="/resume">RESUME</CustomNavLink>
+          <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", width: "100%", height: "100%" }}>
+            <CustomNavLink to="/resume" onClick={onClose}>RESUME</CustomNavLink>
           </Box>
           <hr />
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              width: "100%",
-              height: "100%",
-            }}
-          >
-            <CustomNavLink to="/about">ABOUT</CustomNavLink>
+          <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", width: "100%", height: "100%" }}>
+            <CustomNavLink to="/about" onClick={onClose}>ABOUT</CustomNavLink>
           </Box>
         </StyledBox>
       </SwipeableDrawer>
@@ -157,6 +100,8 @@ Drawer.propTypes = {
    * You won't need it on your project.
    */
   window: PropTypes.func,
+  open: PropTypes.bool.isRequired,
+  onClose: PropTypes.func.isRequired,
 }
 const CustomNavLink = styled(NavLink)(({ theme }) => ({
   textDecoration: "none",

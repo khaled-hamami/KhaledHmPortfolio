@@ -1,3 +1,4 @@
+import PropTypes from "prop-types"
 import styled from "@emotion/styled"
 import { AppBar, Box, Container, IconButton, Toolbar, Typography } from "@mui/material"
 import SettingsSharpIcon from "@mui/icons-material/SettingsSharp"
@@ -10,7 +11,10 @@ import { NavLink } from "react-router-dom"
 import Tilt from "react-parallax-tilt"
 import "../styles/index.css"
 
-export default function Navbar() {
+export default function Navbar(props) {
+Navbar.propTypes = {
+  onDrawerOpen: PropTypes.func,
+}
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const [scrolling, setScrolling] = useState(false)
@@ -145,8 +149,19 @@ export default function Navbar() {
               }}
             />
           </IconButton>
-          <IconButton onClick={handleSettingsVisible} name="navigation button">
+          <IconButton onClick={props.onDrawerOpen} name="drawer button">
             <SegmentSharpIcon
+              sx={{
+                color: "primary.main",
+                display: {
+                  md: "none",
+                },
+                "&:hover": { color: "contrast.main" },
+              }}
+            />
+          </IconButton>
+          <IconButton onClick={handleSettingsVisible} name="navigation button">
+            <SettingsSharpIcon
               sx={{
                 color: "primary.main",
                 display: {
