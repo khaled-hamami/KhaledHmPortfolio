@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { Box, IconButton, Typography } from "@mui/material"
-import { GitHub, Facebook, LinkedIn, Email } from "@mui/icons-material"
+import { GitHub,  LinkedIn, Email } from "@mui/icons-material"
 import Popup from "../utils/Popup"
 import Logo from "../assets/favicon.webp"
 import styled from "@emotion/styled"
@@ -69,18 +69,12 @@ export default function Footer() {
           >
             <LinkedIn sx={{ color: "contrast.main", fontSize: { xs: "1.2rem", sm: "1.6rem" } }} />
           </StyledIcon>
-          <StyledIcon
-            sx={{ marginX: { xs: "5px", sm: "10px", md: "20px" } }}
-            href={"https://www.facebook.com/profile.php?id=100028537561096"}
-            target="_blank"
-          >
-            <Facebook sx={{ color: "contrast.main", fontSize: { xs: "1.2rem", sm: "1.6rem" } }} />
-          </StyledIcon>
+        
           <StyledIcon
             sx={{ marginX: { xs: "5px", sm: "10px", md: "20px" } }}
             onClick={() => {
               SetOpen(true)
-              copyToClipboard("khaled.hammami.740@gmail.com")
+              copyToClipboard("khaledhm740@gmail.com")
             }}
           >
             <Email sx={{ color: "contrast.main", fontSize: { xs: "1.2rem", sm: "1.6rem" } }} />
